@@ -1,0 +1,291 @@
+/*
+ * RVImgui.cpp
+ *
+ *  Created on: 26.02.2021
+ *      Author: rik
+ */
+/*
+ * RVImgui.h
+ *
+ *  Created on: 24.02.2021
+ *      Author: rik
+ */
+
+#include <benchmark.hpp>
+#include <VulkanBuffer.h>
+
+#define GLM_FORCE_RADIANS
+#define GLM_FORCE_DEPTH_ZERO_TO_ONE
+#define GLM_ENABLE_EXPERIMENTAL
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtx/hash.hpp>
+#include <vk_engine.h>
+#include <RVImgui.h>
+#include <imgui.h>
+#include <imgui_impl_glfw.h>
+#include <imgui_impl_vulkan.h>
+
+static void check_vk_result(VkResult err)
+{
+    if (err == 0)
+        return;
+    fprintf(stderr, "[vulkan] Error: VkResult = %d\n", err);
+    if (err < 0)
+        abort();
+}
+
+// ----------------------------------------------------------------------------
+// RImGui class Implementation
+// ----------------------------------------------------------------------------
+
+//RImGui::RImGui(VulkanEngine *theApp) : engine(theApp){
+RImGui::RImGui(VulkanEngine			*eng){
+	engine = eng;
+	glfwGetFramebufferSize					(engine->window, &width, &height);
+	wd = &g_MainWindowData;
+	VkBool32 res;
+	vkGetPhysicalDeviceSurfaceSupportKHR(
+			engine->physicalDevice, engine->queueFamilyIndices.graphicsFamily, engine->surface, &res);
+	//engine->physicalDevice, engine->queueFamilyIndices.presentFamily, wd->Surface, &res);
+	if (res != VK_TRUE)
+	{
+		fprintf(stderr, "Error no WSI support on physical device 0\n");
+		exit(-1);
+	}
+    // Select Surface Format
+    const VkFormat requestSurfaceImageFormat[] =
+    {VK_FORMAT_B8G8R8A8_UNORM,VK_FORMAT_R8G8B8A8_UNORM, VK_FORMAT_B8G8R8_UNORM,VK_FORMAT_R8G8B8_UNORM };
+
+    const VkColorSpaceKHR requestSurfaceColorSpace = VK_COLORSPACE_SRGB_NONLINEAR_KHR;
+    wd->SurfaceFormat = ImGui_ImplVulkanH_SelectSurfaceFormat(engine->physicalDevice,engine->surface,requestSurfaceImageFormat,
+			(size_t)IM_ARRAYSIZE(requestSurfaceImageFormat),requestSurfaceColorSpace);
+
+#ifdef IMGUI_UNLIMITED_FRAME_RATE
+    VkPresentModeKHR present_modes[] = { VK_PRESENT_MODE_MAILBOX_KHR, VK_PRESENT_MODE_IMMEDIATE_KHR, VK_PRESENT_MODE_FIFO_KHR };
+#else
+    VkPresentModeKHR present_modes[] = { VK_PRESENT_MODE_FIFO_KHR };
+#endif
+    wd->PresentMode = ImGui_ImplVulkanH_SelectPresentMode(engine->physicalDevice,wd->Surface,&present_modes[0],IM_ARRAYSIZE(present_modes));
+    IM_ASSERT(g_MinImageCount >= 2);
+    ImGui_ImplVulkanH_CreateOrResizeWindow(engine->instance,engine->physicalDevice,engine->device,wd,
+			engine->queueFamilyIndices.graphicsFamily,nullptr,width,height,g_MinImageCount);
+
+    IMGUI_CHECKVERSION();
+    ImGui::CreateContext();
+    ImGuiIO& io = ImGui::GetIO(); (void)io;
+    ImGui::StyleColorsDark();
+	ImGui_ImplGlfw_InitForVulkan			(engine->window, true);
+
+	ImGui_ImplVulkan_InitInfo init_info 	= {};
+	init_info.Instance 						= engine->instance;
+	init_info.PhysicalDevice 				= engine->physicalDevice;
+	init_info.Device 						= engine->device;
+	init_info.QueueFamily 					= engine->queueFamilyIndices.graphicsFamily;
+	init_info.Queue 						= engine->queue;
+	init_info.PipelineCache 				= VK_NULL_HANDLE;
+	init_info.DescriptorPool 				= descriptorPool;
+	init_info.Allocator 					= NULL;
+	init_info.MinImageCount 				= 2;
+	init_info.ImageCount 					= static_cast<uint32_t>(engine->swapChainImages.size());
+	init_info.CheckVkResultFn 				= NULL;
+	ImGui_ImplVulkan_Init					(&init_info, engine->renderPass);
+
+    // Use any command queue
+    VkCommandPool 	command_pool 			= wd->Frames[wd->FrameIndex].CommandPool;
+    VkCommandBuffer command_buffer 			= wd->Frames[wd->FrameIndex].CommandBuffer;
+
+    check_vk_result(vkResetCommandPool		(engine->device, command_pool, 0));
+
+    VkCommandBufferBeginInfo begin_info 	= {};
+    begin_info.sType 						= VK_STRUCTURE_TYPE_COMMAND_BUFFER_BEGIN_INFO;
+    begin_info.flags 						= VK_COMMAND_BUFFER_USAGE_ONE_TIME_SUBMIT_BIT;
+    check_vk_result(vkBeginCommandBuffer	(command_buffer, &begin_info));
+    ImGui_ImplVulkan_CreateFontsTexture		(command_buffer);
+
+    VkSubmitInfo end_info 					= {};
+    end_info.sType 							= VK_STRUCTURE_TYPE_SUBMIT_INFO;
+    end_info.commandBufferCount 			= 1;
+    end_info.pCommandBuffers 				= &command_buffer;
+    check_vk_result(vkEndCommandBuffer		(command_buffer));
+    check_vk_result(vkQueueSubmit			(engine->queue, 1, &end_info, VK_NULL_HANDLE));
+    check_vk_result(vkDeviceWaitIdle		(engine->device));
+    ImGui_ImplVulkan_DestroyFontUploadObjects();
+
+	VkDescriptorPoolSize pool_sizes[] =
+    {
+        { VK_DESCRIPTOR_TYPE_SAMPLER, 1000 },
+        { VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER, 1000 },
+        { VK_DESCRIPTOR_TYPE_SAMPLED_IMAGE, 1000 },
+        { VK_DESCRIPTOR_TYPE_STORAGE_IMAGE, 1000 },
+        { VK_DESCRIPTOR_TYPE_UNIFORM_TEXEL_BUFFER, 1000 },
+        { VK_DESCRIPTOR_TYPE_STORAGE_TEXEL_BUFFER, 1000 },
+        { VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER, 1000 },
+        { VK_DESCRIPTOR_TYPE_STORAGE_BUFFER, 1000 },
+        { VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER_DYNAMIC, 1000 },
+        { VK_DESCRIPTOR_TYPE_STORAGE_BUFFER_DYNAMIC, 1000 },
+        { VK_DESCRIPTOR_TYPE_INPUT_ATTACHMENT, 1000 }
+    };
+    VkDescriptorPoolCreateInfo pool_info = {};
+    pool_info.sType 						= VK_STRUCTURE_TYPE_DESCRIPTOR_POOL_CREATE_INFO;
+    pool_info.flags 						= VK_DESCRIPTOR_POOL_CREATE_FREE_DESCRIPTOR_SET_BIT;
+    pool_info.maxSets 						= 1000 * IM_ARRAYSIZE(pool_sizes);
+    pool_info.poolSizeCount 				= (uint32_t)IM_ARRAYSIZE(pool_sizes);
+    pool_info.pPoolSizes 					= pool_sizes;
+    check_vk_result(vkCreateDescriptorPool	(engine->device, &pool_info, nullptr, &descriptorPool));
+
+    init									(width, height);
+
+};
+
+RImGui::~RImGui(){
+	ImGui::DestroyContext	    ();
+    ImGui_ImplVulkanH_DestroyWindow(engine->instance, engine->device, &g_MainWindowData, nullptr);
+}
+
+// Initialize styles, keys, etc.
+void RImGui::init(float width, float height){
+	// Color scheme
+	ImGuiStyle& style 						= ImGui::GetStyle();
+	style.Colors[ImGuiCol_TitleBg] 			= ImVec4(1.0f, 0.0f, 0.0f, 0.6f);
+	style.Colors[ImGuiCol_TitleBgActive] 	= ImVec4(1.0f, 0.0f, 0.0f, 0.8f);
+	style.Colors[ImGuiCol_MenuBarBg] 		= ImVec4(1.0f, 0.0f, 0.0f, 0.4f);
+	style.Colors[ImGuiCol_Header] 			= ImVec4(1.0f, 0.0f, 0.0f, 0.4f);
+	style.Colors[ImGuiCol_CheckMark] 		= ImVec4(0.0f, 1.0f, 0.0f, 1.0f);
+	// Dimensions
+	ImGuiIO& io 							= ImGui::GetIO();
+	(void)io;
+	io.Fonts->AddFontDefault				();
+	ImGui::StyleColorsDark					();
+    ImGui::StyleColorsClassic();
+
+	io.DisplaySize 							= ImVec2(width, height);
+	io.DisplayFramebufferScale 				= ImVec2(1.0f, 1.0f);
+
+	VkCommandPool command_pool 				= engine->cmdPool;
+
+
+
+}
+
+// All the ImGui_ImplVulkanH_XXX structures/functions are optional helpers used by the demo.
+// Your real engine/app may not use them.
+void RImGui::SetupVulkanWindow()
+{
+	wd 										= &g_MainWindowData;
+    wd->Surface 							= engine->surface;
+
+    // Check for WSI support
+    VkBool32 res;
+    vkGetPhysicalDeviceSurfaceSupportKHR(
+    		engine->physicalDevice,
+    		engine->queueFamilyIndices.graphicsFamily,
+			engine->surface, &res);
+
+    if (res != VK_TRUE) {
+        fprintf(stderr, "Error no WSI support on physical device 0\n");
+        exit(-1); }
+
+    // Select Surface Format
+    const VkFormat requestSurfaceImageFormat[] = {
+    		VK_FORMAT_B8G8R8A8_UNORM,
+			VK_FORMAT_R8G8B8A8_UNORM,
+			VK_FORMAT_B8G8R8_UNORM,
+			VK_FORMAT_R8G8B8_UNORM };
+
+    const VkColorSpaceKHR requestSurfaceColorSpace = VK_COLORSPACE_SRGB_NONLINEAR_KHR;
+
+    //printf("[vulkan] Selected PresentMode = %d\n", wd->PresentMode);
+
+    // Create SwapChain, RenderPass, Framebuffer, etc.
+    IM_ASSERT(g_MinImageCount >= 2);
+}
+
+
+void RImGui::FrameRender(ImDrawData* draw_data)
+{
+    VkResult err;
+    VkSemaphore image_acquired_semaphore  = wd->FrameSemaphores[wd->SemaphoreIndex].ImageAcquiredSemaphore;
+    VkSemaphore render_complete_semaphore = wd->FrameSemaphores[wd->SemaphoreIndex].RenderCompleteSemaphore;
+    err = vkAcquireNextImageKHR(engine->device, wd->Swapchain, UINT64_MAX, image_acquired_semaphore, VK_NULL_HANDLE, &wd->FrameIndex);
+    if (err == VK_ERROR_OUT_OF_DATE_KHR)
+    {
+        g_SwapChainRebuild = true;
+        return;
+    }
+    check_vk_result(err);
+
+    ImGui_ImplVulkanH_Frame* fd 			= &wd->Frames[wd->FrameIndex];
+    {
+        err = vkWaitForFences(engine->device, 1, &fd->Fence, VK_TRUE, UINT64_MAX);    // wait indefinitely instead of periodically checking
+        check_vk_result(err);
+
+        err = vkResetFences(engine->device, 1, &fd->Fence);
+        check_vk_result(err);
+    }
+    {
+        err = vkResetCommandPool(engine->device, fd->CommandPool, 0);
+        check_vk_result(err);
+        VkCommandBufferBeginInfo info = {};
+        info.sType = VK_STRUCTURE_TYPE_COMMAND_BUFFER_BEGIN_INFO;
+        info.flags |= VK_COMMAND_BUFFER_USAGE_ONE_TIME_SUBMIT_BIT;
+        err = vkBeginCommandBuffer(fd->CommandBuffer, &info);
+        check_vk_result(err);
+    }
+    {
+        VkRenderPassBeginInfo info = {};
+        info.sType = VK_STRUCTURE_TYPE_RENDER_PASS_BEGIN_INFO;
+        info.renderPass = wd->RenderPass;
+        info.framebuffer = fd->Framebuffer;
+        info.renderArea.extent.width = wd->Width;
+        info.renderArea.extent.height = wd->Height;
+        info.clearValueCount = 1;
+        info.pClearValues = &wd->ClearValue;
+        vkCmdBeginRenderPass(fd->CommandBuffer, &info, VK_SUBPASS_CONTENTS_INLINE);
+    }
+
+    // Record dear imgui primitives into command buffer
+    ImGui_ImplVulkan_RenderDrawData(draw_data, fd->CommandBuffer);
+
+    // Submit command buffer
+    vkCmdEndRenderPass(fd->CommandBuffer);
+    {
+        VkPipelineStageFlags wait_stage = VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT;
+        VkSubmitInfo info = {};
+        info.sType = VK_STRUCTURE_TYPE_SUBMIT_INFO;
+        info.waitSemaphoreCount = 1;
+        info.pWaitSemaphores = &image_acquired_semaphore;
+        info.pWaitDstStageMask = &wait_stage;
+        info.commandBufferCount = 1;
+        info.pCommandBuffers = &fd->CommandBuffer;
+        info.signalSemaphoreCount = 1;
+        info.pSignalSemaphores = &render_complete_semaphore;
+
+        err = vkEndCommandBuffer(fd->CommandBuffer);
+        check_vk_result(err);
+        err = vkQueueSubmit(engine->graphicsQueue, 1, &info, fd->Fence);
+        check_vk_result(err);
+    }
+}
+
+void RImGui::FramePresent()
+{
+    if (g_SwapChainRebuild)
+        return;
+    VkSemaphore render_complete_semaphore = wd->FrameSemaphores[wd->SemaphoreIndex].RenderCompleteSemaphore;
+    VkPresentInfoKHR info 	= {};
+    info.sType 				= VK_STRUCTURE_TYPE_PRESENT_INFO_KHR;
+    info.waitSemaphoreCount = 1;
+    info.pWaitSemaphores 	= &render_complete_semaphore;
+    info.swapchainCount 	= 1;
+    info.pSwapchains 		= &wd->Swapchain;
+    info.pImageIndices 		= &wd->FrameIndex;
+    VkResult err 			= vkQueuePresentKHR(engine->graphicsQueue, &info);
+    if (err == VK_ERROR_OUT_OF_DATE_KHR)
+    {
+        g_SwapChainRebuild 	= true;
+        return;
+    }
+    check_vk_result(err);
+    wd->SemaphoreIndex 		= (wd->SemaphoreIndex + 1) % wd->ImageCount; // Now we can use the next set of semaphores
+}
