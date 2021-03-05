@@ -1,0 +1,530 @@
+            pSignalSemaphores:              const VkSemaphore* = 0x555556574840
+                pSignalSemaphores[0]:           const VkSemaphore = 0x555556236760
+    fence:                          VkFence = 0x5555565b9e10
+
+Thread 0, Frame 11318:
+vkQueuePresentKHR(queue, pPresentInfo) returns VkResult VK_SUCCESS (0):
+    queue:                          VkQueue = 0x555555efde30
+    pPresentInfo:                   const VkPresentInfoKHR* = 0x555556574c20:
+        sType:                          VkStructureType = VK_STRUCTURE_TYPE_PRESENT_INFO_KHR (1000001001)
+        pNext:                          const void* = NULL
+        waitSemaphoreCount:             uint32_t = 1
+        pWaitSemaphores:                const VkSemaphore* = 0x555556574ff0
+            pWaitSemaphores[0]:             const VkSemaphore = 0x555556236760
+        swapchainCount:                 uint32_t = 1
+        pSwapchains:                    const VkSwapchainKHR* = 0x555556574fb0
+            pSwapchains[0]:                 const VkSwapchainKHR = 0x555556037ae0
+        pImageIndices:                  const uint32_t* = 0x5555565744e0
+            pImageIndices[0]:               const uint32_t = 1
+        pResults:                       VkResult* = NULL
+
+Thread 0, Frame 11319:
+vkDeviceWaitIdle(device) returns VkResult VK_SUCCESS (0):
+    device:                         VkDevice = 0x555556105040
+
+Thread 0, Frame 11319:
+vkWaitForFences(device, fenceCount, pFences, waitAll, timeout) returns VkResult VK_SUCCESS (0):
+    device:                         VkDevice = 0x555556105040
+    fenceCount:                     uint32_t = 1
+    pFences:                        const VkFence* = 0x7fffffffd3b0
+        pFences[0]:                     const VkFence = 0x5555565bb2a0
+    waitAll:                        VkBool32 = 1
+    timeout:                        uint64_t = 18446744073709551615
+
+Thread 0, Frame 11319:
+vkAcquireNextImageKHR(device, swapchain, timeout, semaphore, fence, pImageIndex) returns VkResult VK_SUCCESS (0):
+    device:                         VkDevice = 0x555556105040
+    swapchain:                      VkSwapchainKHR = 0x555556037ae0
+    timeout:                        uint64_t = 18446744073709551615
+    semaphore:                      VkSemaphore = 0x5555565baa30
+    fence:                          VkFence = 0
+    pImageIndex:                    uint32_t* = 0
+
+Thread 0, Frame 11319:
+vkMapMemory(device, memory, offset, size, flags, ppData) returns VkResult VK_SUCCESS (0):
+    device:                         VkDevice = 0x555556105040
+    memory:                         VkDeviceMemory = 0x5555565b7160
+    offset:                         VkDeviceSize = 0
+    size:                           VkDeviceSize = 192
+    flags:                          VkMemoryMapFlags = 0
+    ppData:                         void** = 0x7fffe459c000
+
+Thread 0, Frame 11319:
+vkUnmapMemory(device, memory) returns void:
+    device:                         VkDevice = 0x555556105040
+    memory:                         VkDeviceMemory = 0x5555565b7160
+
+Thread 0, Frame 11319:
+vkWaitForFences(device, fenceCount, pFences, waitAll, timeout) returns VkResult VK_SUCCESS (0):
+    device:                         VkDevice = 0x555556105040
+    fenceCount:                     uint32_t = 1
+    pFences:                        const VkFence* = 0x7fffffffd3b0
+        pFences[0]:                     const VkFence = 0x5555565bb2a0
+    waitAll:                        VkBool32 = 1
+    timeout:                        uint64_t = 18446744073709551615
+
+Thread 0, Frame 11319:
+vkResetFences(device, fenceCount, pFences) returns VkResult VK_SUCCESS (0):
+    device:                         VkDevice = 0x555556105040
+    fenceCount:                     uint32_t = 1
+    pFences:                        const VkFence* = 0x7fffffffd3d0
+        pFences[0]:                     const VkFence = 0x5555565bb2a0
+
+Thread 0, Frame 11319:
+vkQueueSubmit(queue, submitCount, pSubmits, fence) returns VkResult VK_SUCCESS (0):
+    queue:                          VkQueue = 0x555555efde30
+    submitCount:                    uint32_t = 1
+    pSubmits:                       const VkSubmitInfo* = 0x55555656d458
+        pSubmits[0]:                    const VkSubmitInfo = 0x55555656d458:
+            sType:                          VkStructureType = VK_STRUCTURE_TYPE_SUBMIT_INFO (4)
+            pNext:                          const void* = NULL
+            waitSemaphoreCount:             uint32_t = 1
+            pWaitSemaphores:                const VkSemaphore* = 0x5555565749c0
+                pWaitSemaphores[0]:             const VkSemaphore = 0x5555565baa30
+            pWaitDstStageMask:              const VkPipelineStageFlags* = 0x555556574840
+                pWaitDstStageMask[0]:           const VkPipelineStageFlags = 1024 (VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT)
+            commandBufferCount:             uint32_t = 1
+            pCommandBuffers:                const VkCommandBuffer* = 0x55555655dad0
+                pCommandBuffers[0]:             const VkCommandBuffer = 0x555556510130
+            signalSemaphoreCount:           uint32_t = 1
+            pSignalSemaphores:              const VkSemaphore* = 0x555556574ff0
+                pSignalSemaphores[0]:           const VkSemaphore = 0x5555565bae90
+    fence:                          VkFence = 0x5555565bb2a0
+
+Thread 0, Frame 11319:
+vkQueuePresentKHR(queue, pPresentInfo) returns VkResult VK_SUCCESS (0):
+    queue:                          VkQueue = 0x555555efde30
+    pPresentInfo:                   const VkPresentInfoKHR* = 0x555556574c20:
+        sType:                          VkStructureType = VK_STRUCTURE_TYPE_PRESENT_INFO_KHR (1000001001)
+        pNext:                          const void* = NULL
+        waitSemaphoreCount:             uint32_t = 1
+        pWaitSemaphores:                const VkSemaphore* = 0x555556574fd0
+            pWaitSemaphores[0]:             const VkSemaphore = 0x5555565bae90
+        swapchainCount:                 uint32_t = 1
+        pSwapchains:                    const VkSwapchainKHR* = 0x555556574a20
+            pSwapchains[0]:                 const VkSwapchainKHR = 0x555556037ae0
+        pImageIndices:                  const uint32_t* = 0x555556574f90
+            pImageIndices[0]:               const uint32_t = 0
+        pResults:                       VkResult* = NULL
+
+Thread 0, Frame 11320:
+vkDeviceWaitIdle(device) returns VkResult VK_SUCCESS (0):
+    device:                         VkDevice = 0x555556105040
+
+Thread 0, Frame 11320:
+vkDestroyImageView(device, imageView, pAllocator) returns void:
+    device:                         VkDevice = 0x555556105040
+    imageView:                      VkImageView = 0x55555653bed0
+    pAllocator:                     const VkAllocationCallbacks* = NULL
+
+Thread 0, Frame 11320:
+vkDestroyImage(device, image, pAllocator) returns void:
+    device:                         VkDevice = 0x555556105040
+    image:                          VkImage = 0x5555565665a0
+    pAllocator:                     const VkAllocationCallbacks* = NULL
+
+Thread 0, Frame 11320:
+vkFreeMemory(device, memory, pAllocator) returns void:
+    device:                         VkDevice = 0x555556105040
+    memory:                         VkDeviceMemory = 0x5555565b29e0
+    pAllocator:                     const VkAllocationCallbacks* = NULL
+
+Thread 0, Frame 11320:
+vkDestroyImageView(device, imageView, pAllocator) returns void:
+    device:                         VkDevice = 0x555556105040
+    imageView:                      VkImageView = 0x5555565c1450
+    pAllocator:                     const VkAllocationCallbacks* = NULL
+
+Thread 0, Frame 11320:
+vkDestroyImage(device, image, pAllocator) returns void:
+    device:                         VkDevice = 0x555556105040
+    image:                          VkImage = 0x55555653cca0
+    pAllocator:                     const VkAllocationCallbacks* = NULL
+
+Thread 0, Frame 11320:
+vkFreeMemory(device, memory, pAllocator) returns void:
+    device:                         VkDevice = 0x555556105040
+    memory:                         VkDeviceMemory = 0x55555653f8a0
+    pAllocator:                     const VkAllocationCallbacks* = NULL
+
+Thread 0, Frame 11320:
+vkDestroyFramebuffer(device, framebuffer, pAllocator) returns void:
+    device:                         VkDevice = 0x555556105040
+    framebuffer:                    VkFramebuffer = 0x555556526bc0
+    pAllocator:                     const VkAllocationCallbacks* = NULL
+
+Thread 0, Frame 11320:
+vkDestroyFramebuffer(device, framebuffer, pAllocator) returns void:
+    device:                         VkDevice = 0x555556105040
+    framebuffer:                    VkFramebuffer = 0x55555654edc0
+    pAllocator:                     const VkAllocationCallbacks* = NULL
+
+Thread 0, Frame 11320:
+vkDestroyFramebuffer(device, framebuffer, pAllocator) returns void:
+    device:                         VkDevice = 0x555556105040
+    framebuffer:                    VkFramebuffer = 0x555556569b30
+    pAllocator:                     const VkAllocationCallbacks* = NULL
+
+Thread 0, Frame 11320:
+vkDestroyFramebuffer(device, framebuffer, pAllocator) returns void:
+    device:                         VkDevice = 0x555556105040
+    framebuffer:                    VkFramebuffer = 0x5555565606c0
+    pAllocator:                     const VkAllocationCallbacks* = NULL
+
+Thread 0, Frame 11320:
+vkDestroyFramebuffer(device, framebuffer, pAllocator) returns void:
+    device:                         VkDevice = 0x555556105040
+    framebuffer:                    VkFramebuffer = 0x5555565b89b0
+    pAllocator:                     const VkAllocationCallbacks* = NULL
+
+Thread 0, Frame 11320:
+vkFreeCommandBuffers(device, commandPool, commandBufferCount, pCommandBuffers) returns void:
+    device:                         VkDevice = 0x555556105040
+    commandPool:                    VkCommandPool = 0x555556521e30
+    commandBufferCount:             uint32_t = 5
+    pCommandBuffers:                const VkCommandBuffer* = 0x555556519d30
+        pCommandBuffers[0]:             const VkCommandBuffer = 0x555556510130
+        pCommandBuffers[1]:             const VkCommandBuffer = 0x555556524a00
+        pCommandBuffers[2]:             const VkCommandBuffer = 0x5555565c3110
+        pCommandBuffers[3]:             const VkCommandBuffer = 0x5555565c5030
+        pCommandBuffers[4]:             const VkCommandBuffer = 0x5555565c6f50
+
+Thread 0, Frame 11320:
+vkDestroyPipeline(device, pipeline, pAllocator) returns void:
+    device:                         VkDevice = 0x555556105040
+    pipeline:                       VkPipeline = 0x5555565679f0
+    pAllocator:                     const VkAllocationCallbacks* = NULL
+
+Thread 0, Frame 11320:
+vkDestroyPipelineLayout(device, pipelineLayout, pAllocator) returns void:
+    device:                         VkDevice = 0x555556105040
+    pipelineLayout:                 VkPipelineLayout = 0x55555622c600
+    pAllocator:                     const VkAllocationCallbacks* = NULL
+
+Thread 0, Frame 11320:
+vkDestroyRenderPass(device, renderPass, pAllocator) returns void:
+    device:                         VkDevice = 0x555556105040
+    renderPass:                     VkRenderPass = 0x5555565beb50
+    pAllocator:                     const VkAllocationCallbacks* = NULL
+
+Thread 0, Frame 11320:
+vkDestroyImageView(device, imageView, pAllocator) returns void:
+    device:                         VkDevice = 0x555556105040
+    imageView:                      VkImageView = 0x555556547980
+    pAllocator:                     const VkAllocationCallbacks* = NULL
+
+Thread 0, Frame 11320:
+vkDestroyImageView(device, imageView, pAllocator) returns void:
+    device:                         VkDevice = 0x555556105040
+    imageView:                      VkImageView = 0x55555653c000
+    pAllocator:                     const VkAllocationCallbacks* = NULL
+
+Thread 0, Frame 11320:
+vkDestroyImageView(device, imageView, pAllocator) returns void:
+    device:                         VkDevice = 0x555556105040
+    imageView:                      VkImageView = 0x55555655f610
+    pAllocator:                     const VkAllocationCallbacks* = NULL
+
+Thread 0, Frame 11320:
+vkDestroyImageView(device, imageView, pAllocator) returns void:
+    device:                         VkDevice = 0x555556105040
+    imageView:                      VkImageView = 0x555556104a50
+    pAllocator:                     const VkAllocationCallbacks* = NULL
+
+Thread 0, Frame 11320:
+vkDestroyImageView(device, imageView, pAllocator) returns void:
+    device:                         VkDevice = 0x555556105040
+    imageView:                      VkImageView = 0x5555560375b0
+    pAllocator:                     const VkAllocationCallbacks* = NULL
+
+Thread 0, Frame 11320:
+vkDestroySwapchainKHR(device, swapchain, pAllocator) returns void:
+    device:                         VkDevice = 0x555556105040
+    swapchain:                      VkSwapchainKHR = 0x555556037ae0
+    pAllocator:                     const VkAllocationCallbacks* = NULL
+
+Thread 0, Frame 11320:
+vkDestroyBuffer(device, buffer, pAllocator) returns void:
+    device:                         VkDevice = 0x555556105040
+    buffer:                         VkBuffer = 0x555556236b70
+    pAllocator:                     const VkAllocationCallbacks* = NULL
+
+Thread 0, Frame 11320:
+vkFreeMemory(device, memory, pAllocator) returns void:
+    device:                         VkDevice = 0x555556105040
+    memory:                         VkDeviceMemory = 0x5555565b7160
+    pAllocator:                     const VkAllocationCallbacks* = NULL
+
+Thread 0, Frame 11320:
+vkDestroyBuffer(device, buffer, pAllocator) returns void:
+    device:                         VkDevice = 0x555556105040
+    buffer:                         VkBuffer = 0x5555561143a0
+    pAllocator:                     const VkAllocationCallbacks* = NULL
+
+Thread 0, Frame 11320:
+vkFreeMemory(device, memory, pAllocator) returns void:
+    device:                         VkDevice = 0x555556105040
+    memory:                         VkDeviceMemory = 0x555556524090
+    pAllocator:                     const VkAllocationCallbacks* = NULL
+
+Thread 0, Frame 11320:
+vkDestroyBuffer(device, buffer, pAllocator) returns void:
+    device:                         VkDevice = 0x555556105040
+    buffer:                         VkBuffer = 0x5555565613d0
+    pAllocator:                     const VkAllocationCallbacks* = NULL
+
+Thread 0, Frame 11320:
+vkFreeMemory(device, memory, pAllocator) returns void:
+    device:                         VkDevice = 0x555556105040
+    memory:                         VkDeviceMemory = 0x555556552430
+    pAllocator:                     const VkAllocationCallbacks* = NULL
+
+Thread 0, Frame 11320:
+vkDestroyBuffer(device, buffer, pAllocator) returns void:
+    device:                         VkDevice = 0x555556105040
+    buffer:                         VkBuffer = 0x55555656f410
+    pAllocator:                     const VkAllocationCallbacks* = NULL
+
+Thread 0, Frame 11320:
+vkFreeMemory(device, memory, pAllocator) returns void:
+    device:                         VkDevice = 0x555556105040
+    memory:                         VkDeviceMemory = 0x5555565b15a0
+    pAllocator:                     const VkAllocationCallbacks* = NULL
+
+Thread 0, Frame 11320:
+vkDestroyBuffer(device, buffer, pAllocator) returns void:
+    device:                         VkDevice = 0x555556105040
+    buffer:                         VkBuffer = 0x55555656f770
+    pAllocator:                     const VkAllocationCallbacks* = NULL
+
+Thread 0, Frame 11320:
+vkFreeMemory(device, memory, pAllocator) returns void:
+    device:                         VkDevice = 0x555556105040
+    memory:                         VkDeviceMemory = 0x555556555c10
+    pAllocator:                     const VkAllocationCallbacks* = NULL
+
+Thread 0, Frame 11320:
+vkDestroySampler(device, sampler, pAllocator) returns void:
+    device:                         VkDevice = 0x555556105040
+    sampler:                        VkSampler = 0x5555565110a0
+    pAllocator:                     const VkAllocationCallbacks* = NULL
+
+Thread 0, Frame 11320:
+vkDestroyImageView(device, imageView, pAllocator) returns void:
+    device:                         VkDevice = 0x555556105040
+    imageView:                      VkImageView = 0x555556515120
+    pAllocator:                     const VkAllocationCallbacks* = NULL
+
+Thread 0, Frame 11320:
+vkDestroyImage(device, image, pAllocator) returns void:
+    device:                         VkDevice = 0x555556105040
+    image:                          VkImage = 0x55555650ef30
+    pAllocator:                     const VkAllocationCallbacks* = NULL
+
+Thread 0, Frame 11320:
+vkFreeMemory(device, memory, pAllocator) returns void:
+    device:                         VkDevice = 0x555556105040
+    memory:                         VkDeviceMemory = 0x5555565215b0
+    pAllocator:                     const VkAllocationCallbacks* = NULL
+
+Thread 0, Frame 11320:
+vkDestroyDescriptorSetLayout(device, descriptorSetLayout, pAllocator) returns void:
+    device:                         VkDevice = 0x555556105040
+    descriptorSetLayout:            VkDescriptorSetLayout = 0x5555562356a0
+    pAllocator:                     const VkAllocationCallbacks* = NULL
+
+Thread 0, Frame 11320:
+vkDestroyBuffer(device, buffer, pAllocator) returns void:
+    device:                         VkDevice = 0x555556105040
+    buffer:                         VkBuffer = 0x5555565b54e0
+    pAllocator:                     const VkAllocationCallbacks* = NULL
+
+Thread 0, Frame 11320:
+vkFreeMemory(device, memory, pAllocator) returns void:
+    device:                         VkDevice = 0x555556105040
+    memory:                         VkDeviceMemory = 0x555556541a00
+    pAllocator:                     const VkAllocationCallbacks* = NULL
+
+Thread 0, Frame 11320:
+vkDestroyBuffer(device, buffer, pAllocator) returns void:
+    device:                         VkDevice = 0x555556105040
+    buffer:                         VkBuffer = 0x555556542140
+    pAllocator:                     const VkAllocationCallbacks* = NULL
+
+Thread 0, Frame 11320:
+vkFreeMemory(device, memory, pAllocator) returns void:
+    device:                         VkDevice = 0x555556105040
+    memory:                         VkDeviceMemory = 0x555556270b00
+    pAllocator:                     const VkAllocationCallbacks* = NULL
+
+Thread 0, Frame 11320:
+vkDestroySemaphore(device, semaphore, pAllocator) returns void:
+    device:                         VkDevice = 0x555556105040
+    semaphore:                      VkSemaphore = 0x555556236760
+    pAllocator:                     const VkAllocationCallbacks* = NULL
+
+Thread 0, Frame 11320:
+vkDestroySemaphore(device, semaphore, pAllocator) returns void:
+    device:                         VkDevice = 0x555556105040
+    semaphore:                      VkSemaphore = 0x5555565b59b0
+    pAllocator:                     const VkAllocationCallbacks* = NULL
+
+Thread 0, Frame 11320:
+vkDestroyFence(device, fence, pAllocator) returns void:
+    device:                         VkDevice = 0x555556105040
+    fence:                          VkFence = 0x5555565b9e10
+    pAllocator:                     const VkAllocationCallbacks* = NULL
+
+Thread 0, Frame 11320:
+vkDestroySemaphore(device, semaphore, pAllocator) returns void:
+    device:                         VkDevice = 0x555556105040
+    semaphore:                      VkSemaphore = 0x5555565bae90
+    pAllocator:                     const VkAllocationCallbacks* = NULL
+
+Thread 0, Frame 11320:
+vkDestroySemaphore(device, semaphore, pAllocator) returns void:
+    device:                         VkDevice = 0x555556105040
+    semaphore:                      VkSemaphore = 0x5555565baa30
+    pAllocator:                     const VkAllocationCallbacks* = NULL
+
+Thread 0, Frame 11320:
+vkDestroyFence(device, fence, pAllocator) returns void:
+    device:                         VkDevice = 0x555556105040
+    fence:                          VkFence = 0x5555565bb2a0
+    pAllocator:                     const VkAllocationCallbacks* = NULL
+
+Thread 0, Frame 11320:
+vkDestroyCommandPool(device, commandPool, pAllocator) returns void:
+    device:                         VkDevice = 0x555556105040
+    commandPool:                    VkCommandPool = 0x555556521e30
+    pAllocator:                     const VkAllocationCallbacks* = NULL
+
+validation layer: Validation Error: [ VUID-vkDestroyDevice-device-00378 ] Object 0: handle = 0x555556105040, type = VK_OBJECT_TYPE_DEVICE; Object 1: handle = 0x2f400000002f4, type = VK_OBJECT_TYPE_DESCRIPTOR_SET; | MessageID = 0x71500fba | OBJ ERROR : For VkDevice 0x555556105040[], VkDescriptorSet 0x2f400000002f4[] has not been destroyed. The Vulkan spec states: All child objects created on device must have been destroyed prior to destroying device (https://vulkan.lunarg.com/doc/view/1.2.162.1~rc2/linux/1.2-extensions/vkspec.html#VUID-vkDestroyDevice-device-00378)
+validation layer: Validation Error: [ VUID-vkDestroyDevice-device-00378 ] Object 0: handle = 0x555556105040, type = VK_OBJECT_TYPE_DEVICE; Object 1: handle = 0xc300000000c3, type = VK_OBJECT_TYPE_DESCRIPTOR_SET; | MessageID = 0x71500fba | OBJ ERROR : For VkDevice 0x555556105040[], VkDescriptorSet 0xc300000000c3[] has not been destroyed. The Vulkan spec states: All child objects created on device must have been destroyed prior to destroying device (https://vulkan.lunarg.com/doc/view/1.2.162.1~rc2/linux/1.2-extensions/vkspec.html#VUID-vkDestroyDevice-device-00378)
+validation layer: Validation Error: [ VUID-vkDestroyDevice-device-00378 ] Object 0: handle = 0x555556105040, type = VK_OBJECT_TYPE_DEVICE; Object 1: handle = 0x21d000000021d, type = VK_OBJECT_TYPE_DESCRIPTOR_SET; | MessageID = 0x71500fba | OBJ ERROR : For VkDevice 0x555556105040[], VkDescriptorSet 0x21d000000021d[] has not been destroyed. The Vulkan spec states: All child objects created on device must have been destroyed prior to destroying device (https://vulkan.lunarg.com/doc/view/1.2.162.1~rc2/linux/1.2-extensions/vkspec.html#VUID-vkDestroyDevice-device-00378)
+validation layer: Validation Error: [ VUID-vkDestroyDevice-device-00378 ] Object 0: handle = 0x555556105040, type = VK_OBJECT_TYPE_DEVICE; Object 1: handle = 0x6b000000006b, type = VK_OBJECT_TYPE_DESCRIPTOR_SET; | MessageID = 0x71500fba | OBJ ERROR : For VkDevice 0x555556105040[], VkDescriptorSet 0x6b000000006b[] has not been destroyed. The Vulkan spec states: All child objects created on device must have been destroyed prior to destroying device (https://vulkan.lunarg.com/doc/view/1.2.162.1~rc2/linux/1.2-extensions/vkspec.html#VUID-vkDestroyDevice-device-00378)
+validation layer: Validation Error: [ VUID-vkDestroyDevice-device-00378 ] Object 0: handle = 0x555556105040, type = VK_OBJECT_TYPE_DEVICE; Object 1: handle = 0x970000000097, type = VK_OBJECT_TYPE_DESCRIPTOR_SET; | MessageID = 0x71500fba | OBJ ERROR : For VkDevice 0x555556105040[], VkDescriptorSet 0x970000000097[] has not been destroyed. The Vulkan spec states: All child objects created on device must have been destroyed prior to destroying device (https://vulkan.lunarg.com/doc/view/1.2.162.1~rc2/linux/1.2-extensions/vkspec.html#VUID-vkDestroyDevice-device-00378)
+validation layer: Validation Error: [ VUID-vkDestroyDevice-device-00378 ] Object 0: handle = 0x555556105040, type = VK_OBJECT_TYPE_DEVICE; Object 1: handle = 0x29a000000029a, type = VK_OBJECT_TYPE_DESCRIPTOR_SET; | MessageID = 0x71500fba | OBJ ERROR : For VkDevice 0x555556105040[], VkDescriptorSet 0x29a000000029a[] has not been destroyed. The Vulkan spec states: All child objects created on device must have been destroyed prior to destroying device (https://vulkan.lunarg.com/doc/view/1.2.162.1~rc2/linux/1.2-extensions/vkspec.html#VUID-vkDestroyDevice-device-00378)
+validation layer: Validation Error: [ VUID-vkDestroyDevice-device-00378 ] Object 0: handle = 0x555556105040, type = VK_OBJECT_TYPE_DEVICE; Object 1: handle = 0x2730000000273, type = VK_OBJECT_TYPE_DESCRIPTOR_SET; | MessageID = 0x71500fba | OBJ ERROR : For VkDevice 0x555556105040[], VkDescriptorSet 0x2730000000273[] has not been destroyed. The Vulkan spec states: All child objects created on device must have been destroyed prior to destroying device (https://vulkan.lunarg.com/doc/view/1.2.162.1~rc2/linux/1.2-extensions/vkspec.html#VUID-vkDestroyDevice-device-00378)
+validation layer: Validation Error: [ VUID-vkDestroyDevice-device-00378 ] Object 0: handle = 0x555556105040, type = VK_OBJECT_TYPE_DEVICE; Object 1: handle = 0x1c500000001c5, type = VK_OBJECT_TYPE_DESCRIPTOR_SET; | MessageID = 0x71500fba | OBJ ERROR : For VkDevice 0x555556105040[], VkDescriptorSet 0x1c500000001c5[] has not been destroyed. The Vulkan spec states: All child objects created on device must have been destroyed prior to destroying device (https://vulkan.lunarg.com/doc/view/1.2.162.1~rc2/linux/1.2-extensions/vkspec.html#VUID-vkDestroyDevice-device-00378)
+validation layer: Validation Error: [ VUID-vkDestroyDevice-device-00378 ] Object 0: handle = 0x555556105040, type = VK_OBJECT_TYPE_DEVICE; Object 1: handle = 0x16d000000016d, type = VK_OBJECT_TYPE_DESCRIPTOR_SET; | MessageID = 0x71500fba | OBJ ERROR : For VkDevice 0x555556105040[], VkDescriptorSet 0x16d000000016d[] has not been destroyed. The Vulkan spec states: All child objects created on device must have been destroyed prior to destroying device (https://vulkan.lunarg.com/doc/view/1.2.162.1~rc2/linux/1.2-extensions/vkspec.html#VUID-vkDestroyDevice-device-00378)
+validation layer: Validation Error: [ VUID-vkDestroyDevice-device-00378 ] Object 0: handle = 0x555556105040, type = VK_OBJECT_TYPE_DEVICE; Object 1: handle = 0x2460000000246, type = VK_OBJECT_TYPE_DESCRIPTOR_SET; | MessageID = 0x71500fba | OBJ ERROR : For VkDevice 0x555556105040[], VkDescriptorSet 0x2460000000246[] has not been destroyed. The Vulkan spec states: All child objects created on device must have been destroyed prior to destroying device (https://vulkan.lunarg.com/doc/view/1.2.162.1~rc2/linux/1.2-extensions/vkspec.html#VUID-vkDestroyDevice-device-00378)
+validation layer: Validation Error: [ VUID-vkDestroyDevice-device-00378 ] Object 0: handle = 0x555556105040, type = VK_OBJECT_TYPE_DEVICE; Object 1: handle = 0x29b000000029b, type = VK_OBJECT_TYPE_DESCRIPTOR_SET; | MessageID = 0x71500fba | OBJ ERROR : For VkDevice 0x555556105040[], VkDescriptorSet 0x29b000000029b[] has not been destroyed. The Vulkan spec states: All child objects created on device must have been destroyed prior to destroying device (https://vulkan.lunarg.com/doc/view/1.2.162.1~rc2/linux/1.2-extensions/vkspec.html#VUID-vkDestroyDevice-device-00378)
+validation layer: Validation Error: [ VUID-vkDestroyDevice-device-00378 ] Object 0: handle = 0x555556105040, type = VK_OBJECT_TYPE_DEVICE; Object 1: handle = 0x2720000000272, type = VK_OBJECT_TYPE_DESCRIPTOR_SET; | MessageID = 0x71500fba | OBJ ERROR : For VkDevice 0x555556105040[], VkDescriptorSet 0x2720000000272[] has not been destroyed. The Vulkan spec states: All child objects created on device must have been destroyed prior to destroying device (https://vulkan.lunarg.com/doc/view/1.2.162.1~rc2/linux/1.2-extensions/vkspec.html#VUID-vkDestroyDevice-device-00378)
+validation layer: Validation Error: [ VUID-vkDestroyDevice-device-00378 ] Object 0: handle = 0x555556105040, type = VK_OBJECT_TYPE_DEVICE; Object 1: handle = 0x2480000000248, type = VK_OBJECT_TYPE_DESCRIPTOR_SET; | MessageID = 0x71500fba | OBJ ERROR : For VkDevice 0x555556105040[], VkDescriptorSet 0x2480000000248[] has not been destroyed. The Vulkan spec states: All child objects created on device must have been destroyed prior to destroying device (https://vulkan.lunarg.com/doc/view/1.2.162.1~rc2/linux/1.2-extensions/vkspec.html#VUID-vkDestroyDevice-device-00378)
+validation layer: Validation Error: [ VUID-vkDestroyDevice-device-00378 ] Object 0: handle = 0x555556105040, type = VK_OBJECT_TYPE_DEVICE; Object 1: handle = 0x21c000000021c, type = VK_OBJECT_TYPE_DESCRIPTOR_SET; | MessageID = 0x71500fba | OBJ ERROR : For VkDevice 0x555556105040[], VkDescriptorSet 0x21c000000021c[] has not been destroyed. The Vulkan spec states: All child objects created on device must have been destroyed prior to destroying device (https://vulkan.lunarg.com/doc/view/1.2.162.1~rc2/linux/1.2-extensions/vkspec.html#VUID-vkDestroyDevice-device-00378)
+validation layer: Validation Error: [ VUID-vkDestroyDevice-device-00378 ] Object 0: handle = 0x555556105040, type = VK_OBJECT_TYPE_DEVICE; Object 1: handle = 0x960000000096, type = VK_OBJECT_TYPE_DESCRIPTOR_SET; | MessageID = 0x71500fba | OBJ ERROR : For VkDevice 0x555556105040[], VkDescriptorSet 0x960000000096[] has not been destroyed. The Vulkan spec states: All child objects created on device must have been destroyed prior to destroying device (https://vulkan.lunarg.com/doc/view/1.2.162.1~rc2/linux/1.2-extensions/vkspec.html#VUID-vkDestroyDevice-device-00378)
+validation layer: Validation Error: [ VUID-vkDestroyDevice-device-00378 ] Object 0: handle = 0x555556105040, type = VK_OBJECT_TYPE_DEVICE; Object 1: handle = 0x3e000000003e, type = VK_OBJECT_TYPE_DESCRIPTOR_SET; | MessageID = 0x71500fba | OBJ ERROR : For VkDevice 0x555556105040[], VkDescriptorSet 0x3e000000003e[] has not been destroyed. The Vulkan spec states: All child objects created on device must have been destroyed prior to destroying device (https://vulkan.lunarg.com/doc/view/1.2.162.1~rc2/linux/1.2-extensions/vkspec.html#VUID-vkDestroyDevice-device-00378)
+validation layer: Validation Error: [ VUID-vkDestroyDevice-device-00378 ] Object 0: handle = 0x555556105040, type = VK_OBJECT_TYPE_DEVICE; Object 1: handle = 0x1c600000001c6, type = VK_OBJECT_TYPE_DESCRIPTOR_SET; | MessageID = 0x71500fba | OBJ ERROR : For VkDevice 0x555556105040[], VkDescriptorSet 0x1c600000001c6[] has not been destroyed. The Vulkan spec states: All child objects created on device must have been destroyed prior to destroying device (https://vulkan.lunarg.com/doc/view/1.2.162.1~rc2/linux/1.2-extensions/vkspec.html#VUID-vkDestroyDevice-device-00378)
+validation layer: Validation Error: [ VUID-vkDestroyDevice-device-00378 ] Object 0: handle = 0x555556105040, type = VK_OBJECT_TYPE_DEVICE; Object 1: handle = 0xc200000000c2, type = VK_OBJECT_TYPE_DESCRIPTOR_SET; | MessageID = 0x71500fba | OBJ ERROR : For VkDevice 0x555556105040[], VkDescriptorSet 0xc200000000c2[] has not been destroyed. The Vulkan spec states: All child objects created on device must have been destroyed prior to destroying device (https://vulkan.lunarg.com/doc/view/1.2.162.1~rc2/linux/1.2-extensions/vkspec.html#VUID-vkDestroyDevice-device-00378)
+validation layer: Validation Error: [ VUID-vkDestroyDevice-device-00378 ] Object 0: handle = 0x555556105040, type = VK_OBJECT_TYPE_DEVICE; Object 1: handle = 0x1440000000144, type = VK_OBJECT_TYPE_DESCRIPTOR_SET; | MessageID = 0x71500fba | OBJ ERROR : For VkDevice 0x555556105040[], VkDescriptorSet 0x1440000000144[] has not been destroyed. The Vulkan spec states: All child objects created on device must have been destroyed prior to destroying device (https://vulkan.lunarg.com/doc/view/1.2.162.1~rc2/linux/1.2-extensions/vkspec.html#VUID-vkDestroyDevice-device-00378)
+validation layer: Validation Error: [ VUID-vkDestroyDevice-device-00378 ] Object 0: handle = 0x555556105040, type = VK_OBJECT_TYPE_DEVICE; Object 1: handle = 0x16e000000016e, type = VK_OBJECT_TYPE_DESCRIPTOR_SET; | MessageID = 0x71500fba | OBJ ERROR : For VkDevice 0x555556105040[], VkDescriptorSet 0x16e000000016e[] has not been destroyed. The Vulkan spec states: All child objects created on device must have been destroyed prior to destroying device (https://vulkan.lunarg.com/doc/view/1.2.162.1~rc2/linux/1.2-extensions/vkspec.html#VUID-vkDestroyDevice-device-00378)
+validation layer: Validation Error: [ VUID-vkDestroyDevice-device-00378 ] Object 0: handle = 0x555556105040, type = VK_OBJECT_TYPE_DEVICE; Object 1: handle = 0x2470000000247, type = VK_OBJECT_TYPE_DESCRIPTOR_SET; | MessageID = 0x71500fba | OBJ ERROR : For VkDevice 0x555556105040[], VkDescriptorSet 0x2470000000247[] has not been destroyed. The Vulkan spec states: All child objects created on device must have been destroyed prior to destroying device (https://vulkan.lunarg.com/doc/view/1.2.162.1~rc2/linux/1.2-extensions/vkspec.html#VUID-vkDestroyDevice-device-00378)
+validation layer: Validation Error: [ VUID-vkDestroyDevice-device-00378 ] Object 0: handle = 0x555556105040, type = VK_OBJECT_TYPE_DEVICE; Object 1: handle = 0x1430000000143, type = VK_OBJECT_TYPE_DESCRIPTOR_SET; | MessageID = 0x71500fba | OBJ ERROR : For VkDevice 0x555556105040[], VkDescriptorSet 0x1430000000143[] has not been destroyed. The Vulkan spec states: All child objects created on device must have been destroyed prior to destroying device (https://vulkan.lunarg.com/doc/view/1.2.162.1~rc2/linux/1.2-extensions/vkspec.html#VUID-vkDestroyDevice-device-00378)
+validation layer: Validation Error: [ VUID-vkDestroyDevice-device-00378 ] Object 0: handle = 0x555556105040, type = VK_OBJECT_TYPE_DEVICE; Object 1: handle = 0x1450000000145, type = VK_OBJECT_TYPE_DESCRIPTOR_SET; | MessageID = 0x71500fba | OBJ ERROR : For VkDevice 0x555556105040[], VkDescriptorSet 0x1450000000145[] has not been destroyed. The Vulkan spec states: All child objects created on device must have been destroyed prior to destroying device (https://vulkan.lunarg.com/doc/view/1.2.162.1~rc2/linux/1.2-extensions/vkspec.html#VUID-vkDestroyDevice-device-00378)
+validation layer: Validation Error: [ VUID-vkDestroyDevice-device-00378 ] Object 0: handle = 0x555556105040, type = VK_OBJECT_TYPE_DEVICE; Object 1: handle = 0x2c600000002c6, type = VK_OBJECT_TYPE_DESCRIPTOR_SET; | MessageID = 0x71500fba | OBJ ERROR : For VkDevice 0x555556105040[], VkDescriptorSet 0x2c600000002c6[] has not been destroyed. The Vulkan spec states: All child objects created on device must have been destroyed prior to destroying device (https://vulkan.lunarg.com/doc/view/1.2.162.1~rc2/linux/1.2-extensions/vkspec.html#VUID-vkDestroyDevice-device-00378)
+validation layer: Validation Error: [ VUID-vkDestroyDevice-device-00378 ] Object 0: handle = 0x555556105040, type = VK_OBJECT_TYPE_DEVICE; Object 1: handle = 0x2c900000002c9, type = VK_OBJECT_TYPE_DESCRIPTOR_SET; | MessageID = 0x71500fba | OBJ ERROR : For VkDevice 0x555556105040[], VkDescriptorSet 0x2c900000002c9[] has not been destroyed. The Vulkan spec states: All child objects created on device must have been destroyed prior to destroying device (https://vulkan.lunarg.com/doc/view/1.2.162.1~rc2/linux/1.2-extensions/vkspec.html#VUID-vkDestroyDevice-device-00378)
+validation layer: Validation Error: [ VUID-vkDestroyDevice-device-00378 ] Object 0: handle = 0x555556105040, type = VK_OBJECT_TYPE_DEVICE; Object 1: handle = 0x3d000000003d, type = VK_OBJECT_TYPE_DESCRIPTOR_SET; | MessageID = 0x71500fba | OBJ ERROR : For VkDevice 0x555556105040[], VkDescriptorSet 0x3d000000003d[] has not been destroyed. The Vulkan spec states: All child objects created on device must have been destroyed prior to destroying device (https://vulkan.lunarg.com/doc/view/1.2.162.1~rc2/linux/1.2-extensions/vkspec.html#VUID-vkDestroyDevice-device-00378)
+validation layer: Validation Error: [ VUID-vkDestroyDevice-device-00378 ] Object 0: handle = 0x555556105040, type = VK_OBJECT_TYPE_DEVICE; Object 1: handle = 0x29d000000029d, type = VK_OBJECT_TYPE_DESCRIPTOR_SET; | MessageID = 0x71500fba | OBJ ERROR : For VkDevice 0x555556105040[], VkDescriptorSet 0x29d000000029d[] has not been destroyed. The Vulkan spec states: All child objects created on device must have been destroyed prior to destroying device (https://vulkan.lunarg.com/doc/view/1.2.162.1~rc2/linux/1.2-extensions/vkspec.html#VUID-vkDestroyDevice-device-00378)
+validation layer: Validation Error: [ VUID-vkDestroyDevice-device-00378 ] Object 0: handle = 0x555556105040, type = VK_OBJECT_TYPE_DEVICE; Object 1: handle = 0xc100000000c1, type = VK_OBJECT_TYPE_DESCRIPTOR_SET; | MessageID = 0x71500fba | OBJ ERROR : For VkDevice 0x555556105040[], VkDescriptorSet 0xc100000000c1[] has not been destroyed. The Vulkan spec states: All child objects created on device must have been destroyed prior to destroying device (https://vulkan.lunarg.com/doc/view/1.2.162.1~rc2/linux/1.2-extensions/vkspec.html#VUID-vkDestroyDevice-device-00378)
+validation layer: Validation Error: [ VUID-vkDestroyDevice-device-00378 ] Object 0: handle = 0x555556105040, type = VK_OBJECT_TYPE_DEVICE; Object 1: handle = 0x2f300000002f3, type = VK_OBJECT_TYPE_DESCRIPTOR_SET; | MessageID = 0x71500fba | OBJ ERROR : For VkDevice 0x555556105040[], VkDescriptorSet 0x2f300000002f3[] has not been destroyed. The Vulkan spec states: All child objects created on device must have been destroyed prior to destroying device (https://vulkan.lunarg.com/doc/view/1.2.162.1~rc2/linux/1.2-extensions/vkspec.html#VUID-vkDestroyDevice-device-00378)
+validation layer: Validation Error: [ VUID-vkDestroyDevice-device-00378 ] Object 0: handle = 0x555556105040, type = VK_OBJECT_TYPE_DEVICE; Object 1: handle = 0x21a000000021a, type = VK_OBJECT_TYPE_DESCRIPTOR_SET; | MessageID = 0x71500fba | OBJ ERROR : For VkDevice 0x555556105040[], VkDescriptorSet 0x21a000000021a[] has not been destroyed. The Vulkan spec states: All child objects created on device must have been destroyed prior to destroying device (https://vulkan.lunarg.com/doc/view/1.2.162.1~rc2/linux/1.2-extensions/vkspec.html#VUID-vkDestroyDevice-device-00378)
+validation layer: Validation Error: [ VUID-vkDestroyDevice-device-00378 ] Object 0: handle = 0x555556105040, type = VK_OBJECT_TYPE_DEVICE; Object 1: handle = 0x2c700000002c7, type = VK_OBJECT_TYPE_DESCRIPTOR_SET; | MessageID = 0x71500fba | OBJ ERROR : For VkDevice 0x555556105040[], VkDescriptorSet 0x2c700000002c7[] has not been destroyed. The Vulkan spec states: All child objects created on device must have been destroyed prior to destroying device (https://vulkan.lunarg.com/doc/view/1.2.162.1~rc2/linux/1.2-extensions/vkspec.html#VUID-vkDestroyDevice-device-00378)
+validation layer: Validation Error: [ VUID-vkDestroyDevice-device-00378 ] Object 0: handle = 0x555556105040, type = VK_OBJECT_TYPE_DEVICE; Object 1: handle = 0x1c300000001c3, type = VK_OBJECT_TYPE_DESCRIPTOR_SET; | MessageID = 0x71500fba | OBJ ERROR : For VkDevice 0x555556105040[], VkDescriptorSet 0x1c300000001c3[] has not been destroyed. The Vulkan spec states: All child objects created on device must have been destroyed prior to destroying device (https://vulkan.lunarg.com/doc/view/1.2.162.1~rc2/linux/1.2-extensions/vkspec.html#VUID-vkDestroyDevice-device-00378)
+validation layer: Validation Error: [ VUID-vkDestroyDevice-device-00378 ] Object 0: handle = 0x555556105040, type = VK_OBJECT_TYPE_DEVICE; Object 1: handle = 0x26f000000026f, type = VK_OBJECT_TYPE_DESCRIPTOR_SET; | MessageID = 0x71500fba | OBJ ERROR : For VkDevice 0x555556105040[], VkDescriptorSet 0x26f000000026f[] has not been destroyed. The Vulkan spec states: All child objects created on device must have been destroyed prior to destroying device (https://vulkan.lunarg.com/doc/view/1.2.162.1~rc2/linux/1.2-extensions/vkspec.html#VUID-vkDestroyDevice-device-00378)
+validation layer: Validation Error: [ VUID-vkDestroyDevice-device-00378 ] Object 0: handle = 0x555556105040, type = VK_OBJECT_TYPE_DEVICE; Object 1: handle = 0x2f200000002f2, type = VK_OBJECT_TYPE_DESCRIPTOR_SET; | MessageID = 0x71500fba | OBJ ERROR : For VkDevice 0x555556105040[], VkDescriptorSet 0x2f200000002f2[] has not been destroyed. The Vulkan spec states: All child objects created on device must have been destroyed prior to destroying device (https://vulkan.lunarg.com/doc/view/1.2.162.1~rc2/linux/1.2-extensions/vkspec.html#VUID-vkDestroyDevice-device-00378)
+validation layer: Validation Error: [ VUID-vkDestroyDevice-device-00378 ] Object 0: handle = 0x555556105040, type = VK_OBJECT_TYPE_DEVICE; Object 1: handle = 0x21b000000021b, type = VK_OBJECT_TYPE_DESCRIPTOR_SET; | MessageID = 0x71500fba | OBJ ERROR : For VkDevice 0x555556105040[], VkDescriptorSet 0x21b000000021b[] has not been destroyed. The Vulkan spec states: All child objects created on device must have been destroyed prior to destroying device (https://vulkan.lunarg.com/doc/view/1.2.162.1~rc2/linux/1.2-extensions/vkspec.html#VUID-vkDestroyDevice-device-00378)
+validation layer: Validation Error: [ VUID-vkDestroyDevice-device-00378 ] Object 0: handle = 0x555556105040, type = VK_OBJECT_TYPE_DEVICE; Object 1: handle = 0x2c800000002c8, type = VK_OBJECT_TYPE_DESCRIPTOR_SET; | MessageID = 0x71500fba | OBJ ERROR : For VkDevice 0x555556105040[], VkDescriptorSet 0x2c800000002c8[] has not been destroyed. The Vulkan spec states: All child objects created on device must have been destroyed prior to destroying device (https://vulkan.lunarg.com/doc/view/1.2.162.1~rc2/linux/1.2-extensions/vkspec.html#VUID-vkDestroyDevice-device-00378)
+validation layer: Validation Error: [ VUID-vkDestroyDevice-device-00378 ] Object 0: handle = 0x555556105040, type = VK_OBJECT_TYPE_DEVICE; Object 1: handle = 0x29c000000029c, type = VK_OBJECT_TYPE_DESCRIPTOR_SET; | MessageID = 0x71500fba | OBJ ERROR : For VkDevice 0x555556105040[], VkDescriptorSet 0x29c000000029c[] has not been destroyed. The Vulkan spec states: All child objects created on device must have been destroyed prior to destroying device (https://vulkan.lunarg.com/doc/view/1.2.162.1~rc2/linux/1.2-extensions/vkspec.html#VUID-vkDestroyDevice-device-00378)
+validation layer: Validation Error: [ VUID-vkDestroyDevice-device-00378 ] Object 0: handle = 0x555556105040, type = VK_OBJECT_TYPE_DEVICE; Object 1: handle = 0x1ee00000001ee, type = VK_OBJECT_TYPE_DESCRIPTOR_SET; | MessageID = 0x71500fba | OBJ ERROR : For VkDevice 0x555556105040[], VkDescriptorSet 0x1ee00000001ee[] has not been destroyed. The Vulkan spec states: All child objects created on device must have been destroyed prior to destroying device (https://vulkan.lunarg.com/doc/view/1.2.162.1~rc2/linux/1.2-extensions/vkspec.html#VUID-vkDestroyDevice-device-00378)
+validation layer: Validation Error: [ VUID-vkDestroyDevice-device-00378 ] Object 0: handle = 0x555556105040, type = VK_OBJECT_TYPE_DEVICE; Object 1: handle = 0x1c400000001c4, type = VK_OBJECT_TYPE_DESCRIPTOR_SET; | MessageID = 0x71500fba | OBJ ERROR : For VkDevice 0x555556105040[], VkDescriptorSet 0x1c400000001c4[] has not been destroyed. The Vulkan spec states: All child objects created on device must have been destroyed prior to destroying device (https://vulkan.lunarg.com/doc/view/1.2.162.1~rc2/linux/1.2-extensions/vkspec.html#VUID-vkDestroyDevice-device-00378)
+validation layer: Validation Error: [ VUID-vkDestroyDevice-device-00378 ] Object 0: handle = 0x555556105040, type = VK_OBJECT_TYPE_DEVICE; Object 1: handle = 0x3c000000003c, type = VK_OBJECT_TYPE_DESCRIPTOR_SET; | MessageID = 0x71500fba | OBJ ERROR : For VkDevice 0x555556105040[], VkDescriptorSet 0x3c000000003c[] has not been destroyed. The Vulkan spec states: All child objects created on device must have been destroyed prior to destroying device (https://vulkan.lunarg.com/doc/view/1.2.162.1~rc2/linux/1.2-extensions/vkspec.html#VUID-vkDestroyDevice-device-00378)
+validation layer: Validation Error: [ VUID-vkDestroyDevice-device-00378 ] Object 0: handle = 0x555556105040, type = VK_OBJECT_TYPE_DEVICE; Object 1: handle = 0x1460000000146, type = VK_OBJECT_TYPE_DESCRIPTOR_SET; | MessageID = 0x71500fba | OBJ ERROR : For VkDevice 0x555556105040[], VkDescriptorSet 0x1460000000146[] has not been destroyed. The Vulkan spec states: All child objects created on device must have been destroyed prior to destroying device (https://vulkan.lunarg.com/doc/view/1.2.162.1~rc2/linux/1.2-extensions/vkspec.html#VUID-vkDestroyDevice-device-00378)
+validation layer: Validation Error: [ VUID-vkDestroyDevice-device-00378 ] Object 0: handle = 0x555556105040, type = VK_OBJECT_TYPE_DEVICE; Object 1: handle = 0x2f100000002f1, type = VK_OBJECT_TYPE_DESCRIPTOR_SET; | MessageID = 0x71500fba | OBJ ERROR : For VkDevice 0x555556105040[], VkDescriptorSet 0x2f100000002f1[] has not been destroyed. The Vulkan spec states: All child objects created on device must have been destroyed prior to destroying device (https://vulkan.lunarg.com/doc/view/1.2.162.1~rc2/linux/1.2-extensions/vkspec.html#VUID-vkDestroyDevice-device-00378)
+validation layer: Validation Error: [ VUID-vkDestroyDevice-device-00378 ] Object 0: handle = 0x555556105040, type = VK_OBJECT_TYPE_DEVICE; Object 1: handle = 0x3a000000003a, type = VK_OBJECT_TYPE_DESCRIPTOR_SET; | MessageID = 0x71500fba | OBJ ERROR : For VkDevice 0x555556105040[], VkDescriptorSet 0x3a000000003a[] has not been destroyed. The Vulkan spec states: All child objects created on device must have been destroyed prior to destroying device (https://vulkan.lunarg.com/doc/view/1.2.162.1~rc2/linux/1.2-extensions/vkspec.html#VUID-vkDestroyDevice-device-00378)
+validation layer: Validation Error: [ VUID-vkDestroyDevice-device-00378 ] Object 0: handle = 0x555556105040, type = VK_OBJECT_TYPE_DEVICE; Object 1: handle = 0xec00000000ec, type = VK_OBJECT_TYPE_DESCRIPTOR_SET; | MessageID = 0x71500fba | OBJ ERROR : For VkDevice 0x555556105040[], VkDescriptorSet 0xec00000000ec[] has not been destroyed. The Vulkan spec states: All child objects created on device must have been destroyed prior to destroying device (https://vulkan.lunarg.com/doc/view/1.2.162.1~rc2/linux/1.2-extensions/vkspec.html#VUID-vkDestroyDevice-device-00378)
+validation layer: Validation Error: [ VUID-vkDestroyDevice-device-00378 ] Object 0: handle = 0x555556105040, type = VK_OBJECT_TYPE_DEVICE; Object 1: handle = 0x6e000000006e, type = VK_OBJECT_TYPE_DESCRIPTOR_SET; | MessageID = 0x71500fba | OBJ ERROR : For VkDevice 0x555556105040[], VkDescriptorSet 0x6e000000006e[] has not been destroyed. The Vulkan spec states: All child objects created on device must have been destroyed prior to destroying device (https://vulkan.lunarg.com/doc/view/1.2.162.1~rc2/linux/1.2-extensions/vkspec.html#VUID-vkDestroyDevice-device-00378)
+validation layer: Validation Error: [ VUID-vkDestroyDevice-device-00378 ] Object 0: handle = 0x555556105040, type = VK_OBJECT_TYPE_DEVICE; Object 1: handle = 0x2190000000219, type = VK_OBJECT_TYPE_DESCRIPTOR_SET; | MessageID = 0x71500fba | OBJ ERROR : For VkDevice 0x555556105040[], VkDescriptorSet 0x2190000000219[] has not been destroyed. The Vulkan spec states: All child objects created on device must have been destroyed prior to destroying device (https://vulkan.lunarg.com/doc/view/1.2.162.1~rc2/linux/1.2-extensions/vkspec.html#VUID-vkDestroyDevice-device-00378)
+validation layer: Validation Error: [ VUID-vkDestroyDevice-device-00378 ] Object 0: handle = 0x555556105040, type = VK_OBJECT_TYPE_DEVICE; Object 1: handle = 0x2f000000002f0, type = VK_OBJECT_TYPE_DESCRIPTOR_SET; | MessageID = 0x71500fba | OBJ ERROR : For VkDevice 0x555556105040[], VkDescriptorSet 0x2f000000002f0[] has not been destroyed. The Vulkan spec states: All child objects created on device must have been destroyed prior to destroying device (https://vulkan.lunarg.com/doc/view/1.2.162.1~rc2/linux/1.2-extensions/vkspec.html#VUID-vkDestroyDevice-device-00378)
+validation layer: Validation Error: [ VUID-vkDestroyDevice-device-00378 ] Object 0: handle = 0x555556105040, type = VK_OBJECT_TYPE_DEVICE; Object 1: handle = 0x3b000000003b, type = VK_OBJECT_TYPE_DESCRIPTOR_SET; | MessageID = 0x71500fba | OBJ ERROR : For VkDevice 0x555556105040[], VkDescriptorSet 0x3b000000003b[] has not been destroyed. The Vulkan spec states: All child objects created on device must have been destroyed prior to destroying device (https://vulkan.lunarg.com/doc/view/1.2.162.1~rc2/linux/1.2-extensions/vkspec.html#VUID-vkDestroyDevice-device-00378)
+validation layer: Validation Error: [ VUID-vkDestroyDevice-device-00378 ] Object 0: handle = 0x555556105040, type = VK_OBJECT_TYPE_DEVICE; Object 1: handle = 0xed00000000ed, type = VK_OBJECT_TYPE_DESCRIPTOR_SET; | MessageID = 0x71500fba | OBJ ERROR : For VkDevice 0x555556105040[], VkDescriptorSet 0xed00000000ed[] has not been destroyed. The Vulkan spec states: All child objects created on device must have been destroyed prior to destroying device (https://vulkan.lunarg.com/doc/view/1.2.162.1~rc2/linux/1.2-extensions/vkspec.html#VUID-vkDestroyDevice-device-00378)
+validation layer: Validation Error: [ VUID-vkDestroyDevice-device-00378 ] Object 0: handle = 0x555556105040, type = VK_OBJECT_TYPE_DEVICE; Object 1: handle = 0x6f000000006f, type = VK_OBJECT_TYPE_DESCRIPTOR_SET; | MessageID = 0x71500fba | OBJ ERROR : For VkDevice 0x555556105040[], VkDescriptorSet 0x6f000000006f[] has not been destroyed. The Vulkan spec states: All child objects created on device must have been destroyed prior to destroying device (https://vulkan.lunarg.com/doc/view/1.2.162.1~rc2/linux/1.2-extensions/vkspec.html#VUID-vkDestroyDevice-device-00378)
+validation layer: Validation Error: [ VUID-vkDestroyDevice-device-00378 ] Object 0: handle = 0x555556105040, type = VK_OBJECT_TYPE_DEVICE; Object 1: handle = 0x2710000000271, type = VK_OBJECT_TYPE_DESCRIPTOR_SET; | MessageID = 0x71500fba | OBJ ERROR : For VkDevice 0x555556105040[], VkDescriptorSet 0x2710000000271[] has not been destroyed. The Vulkan spec states: All child objects created on device must have been destroyed prior to destroying device (https://vulkan.lunarg.com/doc/view/1.2.162.1~rc2/linux/1.2-extensions/vkspec.html#VUID-vkDestroyDevice-device-00378)
+validation layer: Validation Error: [ VUID-vkDestroyDevice-device-00378 ] Object 0: handle = 0x555556105040, type = VK_OBJECT_TYPE_DEVICE; Object 1: handle = 0x6c000000006c, type = VK_OBJECT_TYPE_DESCRIPTOR_SET; | MessageID = 0x71500fba | OBJ ERROR : For VkDevice 0x555556105040[], VkDescriptorSet 0x6c000000006c[] has not been destroyed. The Vulkan spec states: All child objects created on device must have been destroyed prior to destroying device (https://vulkan.lunarg.com/doc/view/1.2.162.1~rc2/linux/1.2-extensions/vkspec.html#VUID-vkDestroyDevice-device-00378)
+validation layer: Validation Error: [ VUID-vkDestroyDevice-device-00378 ] Object 0: handle = 0x555556105040, type = VK_OBJECT_TYPE_DEVICE; Object 1: handle = 0x1420000000142, type = VK_OBJECT_TYPE_DESCRIPTOR_SET; | MessageID = 0x71500fba | OBJ ERROR : For VkDevice 0x555556105040[], VkDescriptorSet 0x1420000000142[] has not been destroyed. The Vulkan spec states: All child objects created on device must have been destroyed prior to destroying device (https://vulkan.lunarg.com/doc/view/1.2.162.1~rc2/linux/1.2-extensions/vkspec.html#VUID-vkDestroyDevice-device-00378)
+validation layer: Validation Error: [ VUID-vkDestroyDevice-device-00378 ] Object 0: handle = 0x555556105040, type = VK_OBJECT_TYPE_DEVICE; Object 1: handle = 0xee00000000ee, type = VK_OBJECT_TYPE_DESCRIPTOR_SET; | MessageID = 0x71500fba | OBJ ERROR : For VkDevice 0x555556105040[], VkDescriptorSet 0xee00000000ee[] has not been destroyed. The Vulkan spec states: All child objects created on device must have been destroyed prior to destroying device (https://vulkan.lunarg.com/doc/view/1.2.162.1~rc2/linux/1.2-extensions/vkspec.html#VUID-vkDestroyDevice-device-00378)
+validation layer: Validation Error: [ VUID-vkDestroyDevice-device-00378 ] Object 0: handle = 0x555556105040, type = VK_OBJECT_TYPE_DEVICE; Object 1: handle = 0xc400000000c4, type = VK_OBJECT_TYPE_DESCRIPTOR_SET; | MessageID = 0x71500fba | OBJ ERROR : For VkDevice 0x555556105040[], VkDescriptorSet 0xc400000000c4[] has not been destroyed. The Vulkan spec states: All child objects created on device must have been destroyed prior to destroying device (https://vulkan.lunarg.com/doc/view/1.2.162.1~rc2/linux/1.2-extensions/vkspec.html#VUID-vkDestroyDevice-device-00378)
+validation layer: Validation Error: [ VUID-vkDestroyDevice-device-00378 ] Object 0: handle = 0x555556105040, type = VK_OBJECT_TYPE_DEVICE; Object 1: handle = 0x6d000000006d, type = VK_OBJECT_TYPE_DESCRIPTOR_SET; | MessageID = 0x71500fba | OBJ ERROR : For VkDevice 0x555556105040[], VkDescriptorSet 0x6d000000006d[] has not been destroyed. The Vulkan spec states: All child objects created on device must have been destroyed prior to destroying device (https://vulkan.lunarg.com/doc/view/1.2.162.1~rc2/linux/1.2-extensions/vkspec.html#VUID-vkDestroyDevice-device-00378)
+validation layer: Validation Error: [ VUID-vkDestroyDevice-device-00378 ] Object 0: handle = 0x555556105040, type = VK_OBJECT_TYPE_DEVICE; Object 1: handle = 0x2700000000270, type = VK_OBJECT_TYPE_DESCRIPTOR_SET; | MessageID = 0x71500fba | OBJ ERROR : For VkDevice 0x555556105040[], VkDescriptorSet 0x2700000000270[] has not been destroyed. The Vulkan spec states: All child objects created on device must have been destroyed prior to destroying device (https://vulkan.lunarg.com/doc/view/1.2.162.1~rc2/linux/1.2-extensions/vkspec.html#VUID-vkDestroyDevice-device-00378)
+validation layer: Validation Error: [ VUID-vkDestroyDevice-device-00378 ] Object 0: handle = 0x555556105040, type = VK_OBJECT_TYPE_DEVICE; Object 1: handle = 0xef00000000ef, type = VK_OBJECT_TYPE_DESCRIPTOR_SET; | MessageID = 0x71500fba | OBJ ERROR : For VkDevice 0x555556105040[], VkDescriptorSet 0xef00000000ef[] has not been destroyed. The Vulkan spec states: All child objects created on device must have been destroyed prior to destroying device (https://vulkan.lunarg.com/doc/view/1.2.162.1~rc2/linux/1.2-extensions/vkspec.html#VUID-vkDestroyDevice-device-00378)
+validation layer: Validation Error: [ VUID-vkDestroyDevice-device-00378 ] Object 0: handle = 0x555556105040, type = VK_OBJECT_TYPE_DEVICE; Object 1: handle = 0xc500000000c5, type = VK_OBJECT_TYPE_DESCRIPTOR_SET; | MessageID = 0x71500fba | OBJ ERROR : For VkDevice 0x555556105040[], VkDescriptorSet 0xc500000000c5[] has not been destroyed. The Vulkan spec states: All child objects created on device must have been destroyed prior to destroying device (https://vulkan.lunarg.com/doc/view/1.2.162.1~rc2/linux/1.2-extensions/vkspec.html#VUID-vkDestroyDevice-device-00378)
+validation layer: Validation Error: [ VUID-vkDestroyDevice-device-00378 ] Object 0: handle = 0x555556105040, type = VK_OBJECT_TYPE_DEVICE; Object 1: handle = 0x1190000000119, type = VK_OBJECT_TYPE_DESCRIPTOR_SET; | MessageID = 0x71500fba | OBJ ERROR : For VkDevice 0x555556105040[], VkDescriptorSet 0x1190000000119[] has not been destroyed. The Vulkan spec states: All child objects created on device must have been destroyed prior to destroying device (https://vulkan.lunarg.com/doc/view/1.2.162.1~rc2/linux/1.2-extensions/vkspec.html#VUID-vkDestroyDevice-device-00378)
+validation layer: Validation Error: [ VUID-vkDestroyDevice-device-00378 ] Object 0: handle = 0x555556105040, type = VK_OBJECT_TYPE_DEVICE; Object 1: handle = 0x1f200000001f2, type = VK_OBJECT_TYPE_DESCRIPTOR_SET; | MessageID = 0x71500fba | OBJ ERROR : For VkDevice 0x555556105040[], VkDescriptorSet 0x1f200000001f2[] has not been destroyed. The Vulkan spec states: All child objects created on device must have been destroyed prior to destroying device (https://vulkan.lunarg.com/doc/view/1.2.162.1~rc2/linux/1.2-extensions/vkspec.html#VUID-vkDestroyDevice-device-00378)
+validation layer: Validation Error: [ VUID-vkDestroyDevice-device-00378 ] Object 0: handle = 0x555556105040, type = VK_OBJECT_TYPE_DEVICE; Object 1: handle = 0x1700000000170, type = VK_OBJECT_TYPE_DESCRIPTOR_SET; | MessageID = 0x71500fba | OBJ ERROR : For VkDevice 0x555556105040[], VkDescriptorSet 0x1700000000170[] has not been destroyed. The Vulkan spec states: All child objects created on device must have been destroyed prior to destroying device (https://vulkan.lunarg.com/doc/view/1.2.162.1~rc2/linux/1.2-extensions/vkspec.html#VUID-vkDestroyDevice-device-00378)
+validation layer: Validation Error: [ VUID-vkDestroyDevice-device-00378 ] Object 0: handle = 0x555556105040, type = VK_OBJECT_TYPE_DEVICE; Object 1: handle = 0x1f100000001f1, type = VK_OBJECT_TYPE_DESCRIPTOR_SET; | MessageID = 0x71500fba | OBJ ERROR : For VkDevice 0x555556105040[], VkDescriptorSet 0x1f100000001f1[] has not been destroyed. The Vulkan spec states: All child objects created on device must have been destroyed prior to destroying device (https://vulkan.lunarg.com/doc/view/1.2.162.1~rc2/linux/1.2-extensions/vkspec.html#VUID-vkDestroyDevice-device-00378)
+validation layer: Validation Error: [ VUID-vkDestroyDevice-device-00378 ] Object 0: handle = 0x555556105040, type = VK_OBJECT_TYPE_DEVICE; Object 1: handle = 0x1170000000117, type = VK_OBJECT_TYPE_DESCRIPTOR_SET; | MessageID = 0x71500fba | OBJ ERROR : For VkDevice 0x555556105040[], VkDescriptorSet 0x1170000000117[] has not been destroyed. The Vulkan spec states: All child objects created on device must have been destroyed prior to destroying device (https://vulkan.lunarg.com/doc/view/1.2.162.1~rc2/linux/1.2-extensions/vkspec.html#VUID-vkDestroyDevice-device-00378)
+validation layer: Validation Error: [ VUID-vkDestroyDevice-device-00378 ] Object 0: handle = 0x555556105040, type = VK_OBJECT_TYPE_DEVICE; Object 1: handle = 0x1980000000198, type = VK_OBJECT_TYPE_DESCRIPTOR_SET; | MessageID = 0x71500fba | OBJ ERROR : For VkDevice 0x555556105040[], VkDescriptorSet 0x1980000000198[] has not been destroyed. The Vulkan spec states: All child objects created on device must have been destroyed prior to destroying device (https://vulkan.lunarg.com/doc/view/1.2.162.1~rc2/linux/1.2-extensions/vkspec.html#VUID-vkDestroyDevice-device-00378)
+validation layer: Validation Error: [ VUID-vkDestroyDevice-device-00378 ] Object 0: handle = 0x555556105040, type = VK_OBJECT_TYPE_DEVICE; Object 1: handle = 0x11a000000011a, type = VK_OBJECT_TYPE_DESCRIPTOR_SET; | MessageID = 0x71500fba | OBJ ERROR : For VkDevice 0x555556105040[], VkDescriptorSet 0x11a000000011a[] has not been destroyed. The Vulkan spec states: All child objects created on device must have been destroyed prior to destroying device (https://vulkan.lunarg.com/doc/view/1.2.162.1~rc2/linux/1.2-extensions/vkspec.html#VUID-vkDestroyDevice-device-00378)
+validation layer: Validation Error: [ VUID-vkDestroyDevice-device-00378 ] Object 0: handle = 0x555556105040, type = VK_OBJECT_TYPE_DEVICE; Object 1: handle = 0x1f000000001f0, type = VK_OBJECT_TYPE_DESCRIPTOR_SET; | MessageID = 0x71500fba | OBJ ERROR : For VkDevice 0x555556105040[], VkDescriptorSet 0x1f000000001f0[] has not been destroyed. The Vulkan spec states: All child objects created on device must have been destroyed prior to destroying device (https://vulkan.lunarg.com/doc/view/1.2.162.1~rc2/linux/1.2-extensions/vkspec.html#VUID-vkDestroyDevice-device-00378)
+validation layer: Validation Error: [ VUID-vkDestroyDevice-device-00378 ] Object 0: handle = 0x555556105040, type = VK_OBJECT_TYPE_DEVICE; Object 1: handle = 0x1990000000199, type = VK_OBJECT_TYPE_DESCRIPTOR_SET; | MessageID = 0x71500fba | OBJ ERROR : For VkDevice 0x555556105040[], VkDescriptorSet 0x1990000000199[] has not been destroyed. The Vulkan spec states: All child objects created on device must have been destroyed prior to destroying device (https://vulkan.lunarg.com/doc/view/1.2.162.1~rc2/linux/1.2-extensions/vkspec.html#VUID-vkDestroyDevice-device-00378)
+validation layer: Validation Error: [ VUID-vkDestroyDevice-device-00378 ] Object 0: handle = 0x555556105040, type = VK_OBJECT_TYPE_DEVICE; Object 1: handle = 0x19a000000019a, type = VK_OBJECT_TYPE_DESCRIPTOR_SET; | MessageID = 0x71500fba | OBJ ERROR : For VkDevice 0x555556105040[], VkDescriptorSet 0x19a000000019a[] has not been destroyed. The Vulkan spec states: All child objects created on device must have been destroyed prior to destroying device (https://vulkan.lunarg.com/doc/view/1.2.162.1~rc2/linux/1.2-extensions/vkspec.html#VUID-vkDestroyDevice-device-00378)
+validation layer: Validation Error: [ VUID-vkDestroyDevice-device-00378 ] Object 0: handle = 0x555556105040, type = VK_OBJECT_TYPE_DEVICE; Object 1: handle = 0x1180000000118, type = VK_OBJECT_TYPE_DESCRIPTOR_SET; | MessageID = 0x71500fba | OBJ ERROR : For VkDevice 0x555556105040[], VkDescriptorSet 0x1180000000118[] has not been destroyed. The Vulkan spec states: All child objects created on device must have been destroyed prior to destroying device (https://vulkan.lunarg.com/doc/view/1.2.162.1~rc2/linux/1.2-extensions/vkspec.html#VUID-vkDestroyDevice-device-00378)
+validation layer: Validation Error: [ VUID-vkDestroyDevice-device-00378 ] Object 0: handle = 0x555556105040, type = VK_OBJECT_TYPE_DEVICE; Object 1: handle = 0x1710000000171, type = VK_OBJECT_TYPE_DESCRIPTOR_SET; | MessageID = 0x71500fba | OBJ ERROR : For VkDevice 0x555556105040[], VkDescriptorSet 0x1710000000171[] has not been destroyed. The Vulkan spec states: All child objects created on device must have been destroyed prior to destroying device (https://vulkan.lunarg.com/doc/view/1.2.162.1~rc2/linux/1.2-extensions/vkspec.html#VUID-vkDestroyDevice-device-00378)
+validation layer: Validation Error: [ VUID-vkDestroyDevice-device-00378 ] Object 0: handle = 0x555556105040, type = VK_OBJECT_TYPE_DEVICE; Object 1: handle = 0x19b000000019b, type = VK_OBJECT_TYPE_DESCRIPTOR_SET; | MessageID = 0x71500fba | OBJ ERROR : For VkDevice 0x555556105040[], VkDescriptorSet 0x19b000000019b[] has not been destroyed. The Vulkan spec states: All child objects created on device must have been destroyed prior to destroying device (https://vulkan.lunarg.com/doc/view/1.2.162.1~rc2/linux/1.2-extensions/vkspec.html#VUID-vkDestroyDevice-device-00378)
+validation layer: Validation Error: [ VUID-vkDestroyDevice-device-00378 ] Object 0: handle = 0x555556105040, type = VK_OBJECT_TYPE_DEVICE; Object 1: handle = 0x1ef00000001ef, type = VK_OBJECT_TYPE_DESCRIPTOR_SET; | MessageID = 0x71500fba | OBJ ERROR : For VkDevice 0x555556105040[], VkDescriptorSet 0x1ef00000001ef[] has not been destroyed. The Vulkan spec states: All child objects created on device must have been destroyed prior to destroying device (https://vulkan.lunarg.com/doc/view/1.2.162.1~rc2/linux/1.2-extensions/vkspec.html#VUID-vkDestroyDevice-device-00378)
+validation layer: Validation Error: [ VUID-vkDestroyDevice-device-00378 ] Object 0: handle = 0x555556105040, type = VK_OBJECT_TYPE_DEVICE; Object 1: handle = 0x980000000098, type = VK_OBJECT_TYPE_DESCRIPTOR_SET; | MessageID = 0x71500fba | OBJ ERROR : For VkDevice 0x555556105040[], VkDescriptorSet 0x980000000098[] has not been destroyed. The Vulkan spec states: All child objects created on device must have been destroyed prior to destroying device (https://vulkan.lunarg.com/doc/view/1.2.162.1~rc2/linux/1.2-extensions/vkspec.html#VUID-vkDestroyDevice-device-00378)
+validation layer: Validation Error: [ VUID-vkDestroyDevice-device-00378 ] Object 0: handle = 0x555556105040, type = VK_OBJECT_TYPE_DEVICE; Object 1: handle = 0x19c000000019c, type = VK_OBJECT_TYPE_DESCRIPTOR_SET; | MessageID = 0x71500fba | OBJ ERROR : For VkDevice 0x555556105040[], VkDescriptorSet 0x19c000000019c[] has not been destroyed. The Vulkan spec states: All child objects created on device must have been destroyed prior to destroying device (https://vulkan.lunarg.com/doc/view/1.2.162.1~rc2/linux/1.2-extensions/vkspec.html#VUID-vkDestroyDevice-device-00378)
+validation layer: Validation Error: [ VUID-vkDestroyDevice-device-00378 ] Object 0: handle = 0x555556105040, type = VK_OBJECT_TYPE_DEVICE; Object 1: handle = 0x2c500000002c5, type = VK_OBJECT_TYPE_DESCRIPTOR_SET; | MessageID = 0x71500fba | OBJ ERROR : For VkDevice 0x555556105040[], VkDescriptorSet 0x2c500000002c5[] has not been destroyed. The Vulkan spec states: All child objects created on device must have been destroyed prior to destroying device (https://vulkan.lunarg.com/doc/view/1.2.162.1~rc2/linux/1.2-extensions/vkspec.html#VUID-vkDestroyDevice-device-00378)
+validation layer: Validation Error: [ VUID-vkDestroyDevice-device-00378 ] Object 0: handle = 0x555556105040, type = VK_OBJECT_TYPE_DEVICE; Object 1: handle = 0x990000000099, type = VK_OBJECT_TYPE_DESCRIPTOR_SET; | MessageID = 0x71500fba | OBJ ERROR : For VkDevice 0x555556105040[], VkDescriptorSet 0x990000000099[] has not been destroyed. The Vulkan spec states: All child objects created on device must have been destroyed prior to destroying device (https://vulkan.lunarg.com/doc/view/1.2.162.1~rc2/linux/1.2-extensions/vkspec.html#VUID-vkDestroyDevice-device-00378)
+validation layer: Validation Error: [ VUID-vkDestroyDevice-device-00378 ] Object 0: handle = 0x555556105040, type = VK_OBJECT_TYPE_DEVICE; Object 1: handle = 0x29e000000029e, type = VK_OBJECT_TYPE_DESCRIPTOR_SET; | MessageID = 0x71500fba | OBJ ERROR : For VkDevice 0x555556105040[], VkDescriptorSet 0x29e000000029e[] has not been destroyed. The Vulkan spec states: All child objects created on device must have been destroyed prior to destroying device (https://vulkan.lunarg.com/doc/view/1.2.162.1~rc2/linux/1.2-extensions/vkspec.html#VUID-vkDestroyDevice-device-00378)
+validation layer: Validation Error: [ VUID-vkDestroyDevice-device-00378 ] Object 0: handle = 0x555556105040, type = VK_OBJECT_TYPE_DEVICE; Object 1: handle = 0x1c700000001c7, type = VK_OBJECT_TYPE_DESCRIPTOR_SET; | MessageID = 0x71500fba | OBJ ERROR : For VkDevice 0x555556105040[], VkDescriptorSet 0x1c700000001c7[] has not been destroyed. The Vulkan spec states: All child objects created on device must have been destroyed prior to destroying device (https://vulkan.lunarg.com/doc/view/1.2.162.1~rc2/linux/1.2-extensions/vkspec.html#VUID-vkDestroyDevice-device-00378)
+validation layer: Validation Error: [ VUID-vkDestroyDevice-device-00378 ] Object 0: handle = 0x555556105040, type = VK_OBJECT_TYPE_DEVICE; Object 1: handle = 0x2440000000244, type = VK_OBJECT_TYPE_DESCRIPTOR_SET; | MessageID = 0x71500fba | OBJ ERROR : For VkDevice 0x555556105040[], VkDescriptorSet 0x2440000000244[] has not been destroyed. The Vulkan spec states: All child objects created on device must have been destroyed prior to destroying device (https://vulkan.lunarg.com/doc/view/1.2.162.1~rc2/linux/1.2-extensions/vkspec.html#VUID-vkDestroyDevice-device-00378)
+validation layer: Validation Error: [ VUID-vkDestroyDevice-device-00378 ] Object 0: handle = 0x555556105040, type = VK_OBJECT_TYPE_DEVICE; Object 1: handle = 0x9a000000009a, type = VK_OBJECT_TYPE_DESCRIPTOR_SET; | MessageID = 0x71500fba | OBJ ERROR : For VkDevice 0x555556105040[], VkDescriptorSet 0x9a000000009a[] has not been destroyed. The Vulkan spec states: All child objects created on device must have been destroyed prior to destroying device (https://vulkan.lunarg.com/doc/view/1.2.162.1~rc2/linux/1.2-extensions/vkspec.html#VUID-vkDestroyDevice-device-00378)
+validation layer: Validation Error: [ VUID-vkDestroyDevice-device-00378 ] Object 0: handle = 0x555556105040, type = VK_OBJECT_TYPE_DEVICE; Object 1: handle = 0x16f000000016f, type = VK_OBJECT_TYPE_DESCRIPTOR_SET; | MessageID = 0x71500fba | OBJ ERROR : For VkDevice 0x555556105040[], VkDescriptorSet 0x16f000000016f[] has not been destroyed. The Vulkan spec states: All child objects created on device must have been destroyed prior to destroying device (https://vulkan.lunarg.com/doc/view/1.2.162.1~rc2/linux/1.2-extensions/vkspec.html#VUID-vkDestroyDevice-device-00378)
+validation layer: Validation Error: [ VUID-vkDestroyDevice-device-00378 ] Object 0: handle = 0x555556105040, type = VK_OBJECT_TYPE_DEVICE; Object 1: handle = 0x11b000000011b, type = VK_OBJECT_TYPE_DESCRIPTOR_SET; | MessageID = 0x71500fba | OBJ ERROR : For VkDevice 0x555556105040[], VkDescriptorSet 0x11b000000011b[] has not been destroyed. The Vulkan spec states: All child objects created on device must have been destroyed prior to destroying device (https://vulkan.lunarg.com/doc/view/1.2.162.1~rc2/linux/1.2-extensions/vkspec.html#VUID-vkDestroyDevice-device-00378)
+validation layer: Validation Error: [ VUID-vkDestroyDevice-device-00378 ] Object 0: handle = 0x555556105040, type = VK_OBJECT_TYPE_DEVICE; Object 1: handle = 0x2450000000245, type = VK_OBJECT_TYPE_DESCRIPTOR_SET; | MessageID = 0x71500fba | OBJ ERROR : For VkDevice 0x555556105040[], VkDescriptorSet 0x2450000000245[] has not been destroyed. The Vulkan spec states: All child objects created on device must have been destroyed prior to destroying device (https://vulkan.lunarg.com/doc/view/1.2.162.1~rc2/linux/1.2-extensions/vkspec.html#VUID-vkDestroyDevice-device-00378)
+validation layer: Validation Error: [ VUID-vkDestroyDevice-device-00378 ] Object 0: handle = 0x555556105040, type = VK_OBJECT_TYPE_DEVICE; Object 1: handle = 0xf000000000f0, type = VK_OBJECT_TYPE_DESCRIPTOR_SET; | MessageID = 0x71500fba | OBJ ERROR : For VkDevice 0x555556105040[], VkDescriptorSet 0xf000000000f0[] has not been destroyed. The Vulkan spec states: All child objects created on device must have been destroyed prior to destroying device (https://vulkan.lunarg.com/doc/view/1.2.162.1~rc2/linux/1.2-extensions/vkspec.html#VUID-vkDestroyDevice-device-00378)
+validation layer: Validation Error: [ VUID-vkDestroyDevice-device-00378 ] Object 0: handle = 0x555556105040, type = VK_OBJECT_TYPE_DEVICE; Object 1: handle = 0x6a000000006a, type = VK_OBJECT_TYPE_DESCRIPTOR_POOL; | MessageID = 0x71500fba | OBJ ERROR : For VkDevice 0x555556105040[], VkDescriptorPool 0x6a000000006a[] has not been destroyed. The Vulkan spec states: All child objects created on device must have been destroyed prior to destroying device (https://vulkan.lunarg.com/doc/view/1.2.162.1~rc2/linux/1.2-extensions/vkspec.html#VUID-vkDestroyDevice-device-00378)
+validation layer: Validation Error: [ VUID-vkDestroyDevice-device-00378 ] Object 0: handle = 0x555556105040, type = VK_OBJECT_TYPE_DEVICE; Object 1: handle = 0x2ef00000002ef, type = VK_OBJECT_TYPE_DESCRIPTOR_POOL; | MessageID = 0x71500fba | OBJ ERROR : For VkDevice 0x555556105040[], VkDescriptorPool 0x2ef00000002ef[] has not been destroyed. The Vulkan spec states: All child objects created on device must have been destroyed prior to destroying device (https://vulkan.lunarg.com/doc/view/1.2.162.1~rc2/linux/1.2-extensions/vkspec.html#VUID-vkDestroyDevice-device-00378)
+validation layer: Validation Error: [ VUID-vkDestroyDevice-device-00378 ] Object 0: handle = 0x555556105040, type = VK_OBJECT_TYPE_DEVICE; Object 1: handle = 0x26e000000026e, type = VK_OBJECT_TYPE_DESCRIPTOR_POOL; | MessageID = 0x71500fba | OBJ ERROR : For VkDevice 0x555556105040[], VkDescriptorPool 0x26e000000026e[] has not been destroyed. The Vulkan spec states: All child objects created on device must have been destroyed prior to destroying device (https://vulkan.lunarg.com/doc/view/1.2.162.1~rc2/linux/1.2-extensions/vkspec.html#VUID-vkDestroyDevice-device-00378)
+validation layer: Validation Error: [ VUID-vkDestroyDevice-device-00378 ] Object 0: handle = 0x555556105040, type = VK_OBJECT_TYPE_DEVICE; Object 1: handle = 0x1ed00000001ed, type = VK_OBJECT_TYPE_DESCRIPTOR_POOL; | MessageID = 0x71500fba | OBJ ERROR : For VkDevice 0x555556105040[], VkDescriptorPool 0x1ed00000001ed[] has not been destroyed. The Vulkan spec states: All child objects created on device must have been destroyed prior to destroying device (https://vulkan.lunarg.com/doc/view/1.2.162.1~rc2/linux/1.2-extensions/vkspec.html#VUID-vkDestroyDevice-device-00378)
+validation layer: Validation Error: [ VUID-vkDestroyDevice-device-00378 ] Object 0: handle = 0x555556105040, type = VK_OBJECT_TYPE_DEVICE; Object 1: handle = 0xeb00000000eb, type = VK_OBJECT_TYPE_DESCRIPTOR_POOL; | MessageID = 0x71500fba | OBJ ERROR : For VkDevice 0x555556105040[], VkDescriptorPool 0xeb00000000eb[] has not been destroyed. The Vulkan spec states: All child objects created on device must have been destroyed prior to destroying device (https://vulkan.lunarg.com/doc/view/1.2.162.1~rc2/linux/1.2-extensions/vkspec.html#VUID-vkDestroyDevice-device-00378)
+validation layer: Validation Error: [ VUID-vkDestroyDevice-device-00378 ] Object 0: handle = 0x555556105040, type = VK_OBJECT_TYPE_DEVICE; Object 1: handle = 0x950000000095, type = VK_OBJECT_TYPE_DESCRIPTOR_POOL; | MessageID = 0x71500fba | OBJ ERROR : For VkDevice 0x555556105040[], VkDescriptorPool 0x950000000095[] has not been destroyed. The Vulkan spec states: All child objects created on device must have been destroyed prior to destroying device (https://vulkan.lunarg.com/doc/view/1.2.162.1~rc2/linux/1.2-extensions/vkspec.html#VUID-vkDestroyDevice-device-00378)
+validation layer: Validation Error: [ VUID-vkDestroyDevice-device-00378 ] Object 0: handle = 0x555556105040, type = VK_OBJECT_TYPE_DEVICE; Object 1: handle = 0x16c000000016c, type = VK_OBJECT_TYPE_DESCRIPTOR_POOL; | MessageID = 0x71500fba | OBJ ERROR : For VkDevice 0x555556105040[], VkDescriptorPool 0x16c000000016c[] has not been destroyed. The Vulkan spec states: All child objects created on device must have been destroyed prior to destroying device (https://vulkan.lunarg.com/doc/view/1.2.162.1~rc2/linux/1.2-extensions/vkspec.html#VUID-vkDestroyDevice-device-00378)
+validation layer: Validation Error: [ VUID-vkDestroyDevice-device-00378 ] Object 0: handle = 0x555556105040, type = VK_OBJECT_TYPE_DEVICE; Object 1: handle = 0x30000000003, type = VK_OBJECT_TYPE_DESCRIPTOR_POOL; | MessageID = 0x71500fba | OBJ ERROR : For VkDevice 0x555556105040[], VkDescriptorPool 0x30000000003[] has not been destroyed. The Vulkan spec states: All child objects created on device must have been destroyed prior to destroying device (https://vulkan.lunarg.com/doc/view/1.2.162.1~rc2/linux/1.2-extensions/vkspec.html#VUID-vkDestroyDevice-device-00378)
+validation layer: Validation Error: [ VUID-vkDestroyDevice-device-00378 ] Object 0: handle = 0x555556105040, type = VK_OBJECT_TYPE_DEVICE; Object 1: handle = 0xc000000000c0, type = VK_OBJECT_TYPE_DESCRIPTOR_POOL; | MessageID = 0x71500fba | OBJ ERROR : For VkDevice 0x555556105040[], VkDescriptorPool 0xc000000000c0[] has not been destroyed. The Vulkan spec states: All child objects created on device must have been destroyed prior to destroying device (https://vulkan.lunarg.com/doc/view/1.2.162.1~rc2/linux/1.2-extensions/vkspec.html#VUID-vkDestroyDevice-device-00378)
+validation layer: Validation Error: [ VUID-vkDestroyDevice-device-00378 ] Object 0: handle = 0x555556105040, type = VK_OBJECT_TYPE_DEVICE; Object 1: handle = 0x2180000000218, type = VK_OBJECT_TYPE_DESCRIPTOR_POOL; | MessageID = 0x71500fba | OBJ ERROR : For VkDevice 0x555556105040[], VkDescriptorPool 0x2180000000218[] has not been destroyed. The Vulkan spec states: All child objects created on device must have been destroyed prior to destroying device (https://vulkan.lunarg.com/doc/view/1.2.162.1~rc2/linux/1.2-extensions/vkspec.html#VUID-vkDestroyDevice-device-00378)
+validation layer: Validation Error: [ VUID-vkDestroyDevice-device-00378 ] Object 0: handle = 0x555556105040, type = VK_OBJECT_TYPE_DEVICE; Object 1: handle = 0x1c200000001c2, type = VK_OBJECT_TYPE_DESCRIPTOR_POOL; | MessageID = 0x71500fba | OBJ ERROR : For VkDevice 0x555556105040[], VkDescriptorPool 0x1c200000001c2[] has not been destroyed. The Vulkan spec states: All child objects created on device must have been destroyed prior to destroying device (https://vulkan.lunarg.com/doc/view/1.2.162.1~rc2/linux/1.2-extensions/vkspec.html#VUID-vkDestroyDevice-device-00378)
+validation layer: Validation Error: [ VUID-vkDestroyDevice-device-00378 ] Object 0: handle = 0x555556105040, type = VK_OBJECT_TYPE_DEVICE; Object 1: handle = 0x1160000000116, type = VK_OBJECT_TYPE_DESCRIPTOR_POOL; | MessageID = 0x71500fba | OBJ ERROR : For VkDevice 0x555556105040[], VkDescriptorPool 0x1160000000116[] has not been destroyed. The Vulkan spec states: All child objects created on device must have been destroyed prior to destroying device (https://vulkan.lunarg.com/doc/view/1.2.162.1~rc2/linux/1.2-extensions/vkspec.html#VUID-vkDestroyDevice-device-00378)
+validation layer: Validation Error: [ VUID-vkDestroyDevice-device-00378 ] Object 0: handle = 0x555556105040, type = VK_OBJECT_TYPE_DEVICE; Object 1: handle = 0x1410000000141, type = VK_OBJECT_TYPE_DESCRIPTOR_POOL; | MessageID = 0x71500fba | OBJ ERROR : For VkDevice 0x555556105040[], VkDescriptorPool 0x1410000000141[] has not been destroyed. The Vulkan spec states: All child objects created on device must have been destroyed prior to destroying device (https://vulkan.lunarg.com/doc/view/1.2.162.1~rc2/linux/1.2-extensions/vkspec.html#VUID-vkDestroyDevice-device-00378)
+validation layer: Validation Error: [ VUID-vkDestroyDevice-device-00378 ] Object 0: handle = 0x555556105040, type = VK_OBJECT_TYPE_DEVICE; Object 1: handle = 0x2990000000299, type = VK_OBJECT_TYPE_DESCRIPTOR_POOL; | MessageID = 0x71500fba | OBJ ERROR : For VkDevice 0x555556105040[], VkDescriptorPool 0x2990000000299[] has not been destroyed. The Vulkan spec states: All child objects created on device must have been destroyed prior to destroying device (https://vulkan.lunarg.com/doc/view/1.2.162.1~rc2/linux/1.2-extensions/vkspec.html#VUID-vkDestroyDevice-device-00378)
+validation layer: Validation Error: [ VUID-vkDestroyDevice-device-00378 ] Object 0: handle = 0x555556105040, type = VK_OBJECT_TYPE_DEVICE; Object 1: handle = 0x390000000039, type = VK_OBJECT_TYPE_DESCRIPTOR_POOL; | MessageID = 0x71500fba | OBJ ERROR : For VkDevice 0x555556105040[], VkDescriptorPool 0x390000000039[] has not been destroyed. The Vulkan spec states: All child objects created on device must have been destroyed prior to destroying device (https://vulkan.lunarg.com/doc/view/1.2.162.1~rc2/linux/1.2-extensions/vkspec.html#VUID-vkDestroyDevice-device-00378)
+validation layer: Validation Error: [ VUID-vkDestroyDevice-device-00378 ] Object 0: handle = 0x555556105040, type = VK_OBJECT_TYPE_DEVICE; Object 1: handle = 0x1970000000197, type = VK_OBJECT_TYPE_DESCRIPTOR_POOL; | MessageID = 0x71500fba | OBJ ERROR : For VkDevice 0x555556105040[], VkDescriptorPool 0x1970000000197[] has not been destroyed. The Vulkan spec states: All child objects created on device must have been destroyed prior to destroying device (https://vulkan.lunarg.com/doc/view/1.2.162.1~rc2/linux/1.2-extensions/vkspec.html#VUID-vkDestroyDevice-device-00378)
+validation layer: Validation Error: [ VUID-vkDestroyDevice-device-00378 ] Object 0: handle = 0x555556105040, type = VK_OBJECT_TYPE_DEVICE; Object 1: handle = 0x2430000000243, type = VK_OBJECT_TYPE_DESCRIPTOR_POOL; | MessageID = 0x71500fba | OBJ ERROR : For VkDevice 0x555556105040[], VkDescriptorPool 0x2430000000243[] has not been destroyed. The Vulkan spec states: All child objects created on device must have been destroyed prior to destroying device (https://vulkan.lunarg.com/doc/view/1.2.162.1~rc2/linux/1.2-extensions/vkspec.html#VUID-vkDestroyDevice-device-00378)
+validation layer: Validation Error: [ VUID-vkDestroyDevice-device-00378 ] Object 0: handle = 0x555556105040, type = VK_OBJECT_TYPE_DEVICE; Object 1: handle = 0x2c400000002c4, type = VK_OBJECT_TYPE_DESCRIPTOR_POOL; | MessageID = 0x71500fba | OBJ ERROR : For VkDevice 0x555556105040[], VkDescriptorPool 0x2c400000002c4[] has not been destroyed. The Vulkan spec states: All child objects created on device must have been destroyed prior to destroying device (https://vulkan.lunarg.com/doc/view/1.2.162.1~rc2/linux/1.2-extensions/vkspec.html#VUID-vkDestroyDevice-device-00378)
+Thread 0, Frame 11320:
+vkDestroyDevice(device, pAllocator) returns void:
+    device:                         VkDevice = 0x555556105040
+    pAllocator:                     const VkAllocationCallbacks* = NULL
+
+validation layer: Unloading layer library libVkLayer_khronos_validation.so
+validation layer: Unloading layer library libVkLayer_api_dump.so
+Thread 0, Frame 11320:
+vkDestroySurfaceKHR(instance, surface, pAllocator) returns void:
+    instance:                       VkInstance = 0x555555afe7c0
+    surface:                        VkSurfaceKHR = 0x555555f1dc40
+    pAllocator:                     const VkAllocationCallbacks* = NULL
+
+Thread 0, Frame 11320:
+vkDestroyDebugUtilsMessengerEXT(instance, messenger, pAllocator) returns void:
+    instance:                       VkInstance = 0x555555afe7c0
+    messenger:                      VkDebugUtilsMessengerEXT = 0x555555eef0e0
+    pAllocator:                     const VkAllocationCallbacks* = NULL
+
+Thread 0, Frame 11320:
+vkDestroyInstance(instance, pAllocator) returns void:
+    instance:                       VkInstance = 0x555555afe7c0
+    pAllocator:                     const VkAllocationCallbacks* = NULL
+
+validation layer: Unloading layer library libVkLayer_khronos_validation.so
+validation layer: Unloading layer library libVkLayer_api_dump.so
